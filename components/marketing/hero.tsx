@@ -7,7 +7,7 @@ import { FadeIn, ScaleIn, motion } from './motion'
 /* ── Main Hero ── */
 export function Hero() {
   return (
-    <section className="mt-28 lg:mt-36 mb-20 lg:mb-30 px-4 lg:px-9">
+    <section className="mt-14 lg:mt-18 mb-20 lg:mb-30 px-4 lg:px-9">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
 
         {/* ═══ Left: Copy ═══ */}
