@@ -28,7 +28,7 @@ export function TrustedBy() {
           </div>
 
           {/* Logo marquee */}
-          <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="relative w-full lg:flex-1 min-w-0 max-w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex items-center gap-12 animate-[marquee_30s_linear_infinite]">
               {[...logos, ...logos].map((name, i) => (
                 <span
