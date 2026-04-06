@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lane — Marketing Website
 
-## Getting Started
+The public marketing website for [Lane](https://lane.so) — the AI chief of staff your design team never had.
 
-First, run the development server:
+Built with Next.js 16, Tailwind CSS 4, and Motion (Framer Motion). Deployed on Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## What this is
+
+This repo contains the marketing site only. The Lane product (the actual design ops platform) lives in a separate repo.
+
+The site is a single-page marketing experience with sections covering the product's value proposition, how it works, features, anti-surveillance pledge, pricing, and early access CTA.
+
+---
+
+## Tech stack
+
+| Tool | Version | Purpose |
+|------|---------|---------|
+| Next.js | 16.2.2 | Framework (App Router) |
+| React | 19 | UI |
+| TypeScript | 5 | Type safety |
+| Tailwind CSS | 4 | Styling |
+| Motion | 12 | Animations |
+| Lucide React | latest | Icons |
+| clsx + tailwind-merge | latest | Conditional class names |
+
+---
+
+## Design system
+
+The site follows a **Warm Editorial Minimalism** aesthetic — a tool built by designers, for designers.
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| Background | `#F8F6F1` | Warm ivory base |
+| Surface | `#FFFFFF` | Cards, panels |
+| Accent | `#2E5339` | Deep forest green — CTAs, active states |
+| Text primary | `#1C1917` | Warm near-black |
+| Text secondary | `#78716C` | Labels, descriptions |
+| Font (UI) | Satoshi | All human-authored text |
+| Font (data) | Geist Mono | IDs, tags, timestamps, code |
+
+Full design system reference: `lane docs/DESIGN.md` (gitignored, internal only).
+
+---
+
+## Project structure
+
+```
+lane-website/
+├── app/
+│   ├── page.tsx          # Page composition — all sections assembled here
+│   ├── layout.tsx        # Root layout, fonts, metadata
+│   └── globals.css       # CSS custom properties (design tokens), global styles
+├── components/
+│   └── marketing/
+│       ├── header.tsx          # Sticky nav with logo and CTA
+│       ├── hero.tsx            # Hero section with animated workflow visual
+│       ├── trusted-by.tsx      # Logo marquee
+│       ├── metrics-bar.tsx     # 3 before/after metric cards
+│       ├── before-after.tsx    # Without Lane / With Lane comparison table
+│       ├── how-it-works.tsx    # 4-phase tabbed walkthrough
+│       ├── features.tsx        # 6-card feature grid
+│       ├── anti-surveillance.tsx # Anti-surveillance pledge cards
+│       ├── testimonials.tsx    # Reusable pull quote component
+│       ├── pricing.tsx         # 3-tier pricing cards
+│       ├── cta-section.tsx     # Early access CTA block
+│       ├── footer.tsx          # Footer with nav columns
+│       └── motion.tsx          # Shared animation primitives (FadeIn, ScaleIn, etc.)
+├── lib/
+│   └── utils.ts          # cn() utility
+├── public/               # Static assets
+└── docs/                 # Implementation notes (not gitignored)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Getting started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+No environment variables required to run the site locally.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available scripts
 
-## Deploy on Vercel
+```bash
+npm run dev      # Start development server
+npm run build    # Production build
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+The site deploys automatically to Vercel on every push to `main`.
+
+- **Production:** https://lane.so (or configured Vercel domain)
+- **Preview:** Vercel generates a preview URL for every PR
+
+No manual deployment steps required.
+
+---
+
+## Adding or editing content
+
+All marketing copy lives in the component files under `components/marketing/`. Each component is self-contained — copy, structure, and styles are co-located.
+
+To update section content, edit the relevant component directly. The `page.tsx` file only handles section ordering and layout wrappers — it contains no copy.
+
+---
+
+## Internal docs
+
+The `lane docs/` directory contains internal product documentation (PRD, VISION, STORY, DESIGN). It is gitignored and not included in this repo.
