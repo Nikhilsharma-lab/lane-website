@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
+/* ═══ Dark marketing theme ═══ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --bg-base: #0A0A0A;
+  --bg-surface: #141414;
+  --bg-subtle: #1A1A1A;
+  --bg-hover: #1F1F1F;
+  --bg-elevated: #242424;
+
+  /* Text */
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-tertiary: #71717A;
+
+  /* Borders */
+  --border: #27272A;
+  --border-strong: #3F3F46;
+
+  /* Accent — orange */
+  --accent: #F97316;
+  --accent-hover: #EA580C;
+  --accent-subtle: rgba(249, 115, 22, 0.1);
+  --accent-text: #FFFFFF;
+
+  /* Inverted (for CTA section) */
+  --inverted-bg: #FAFAFA;
+  --inverted-text: #0A0A0A;
+  --inverted-secondary: #52525B;
+  --inverted-tertiary: #71717A;
+  --inverted-border: #D4D4D8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Geist', var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
+
+  /* Expose custom widths */
+  --breakpoint-2xl: 1920px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+/* ═══ Animations ═══ */
+@keyframes slidePattern {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 0; }
 }
