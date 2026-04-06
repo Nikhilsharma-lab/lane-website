@@ -59,10 +59,10 @@ const tiers = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="my-20 lg:my-30 px-4 lg:px-9">
+    <section id="pricing" className="py-16 lg:py-24 px-4 lg:px-9">
       {/* Section header */}
       <FadeIn>
-        <div className="border-t border-[var(--border)] pt-6 mb-12">
+        <div className="pt-6 mb-12">
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',

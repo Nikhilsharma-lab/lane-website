@@ -10,7 +10,7 @@ export interface TestimonialProps {
 
 export function Testimonial({ quote, author, role }: TestimonialProps) {
   return (
-    <section className="my-20 lg:my-30 px-4 lg:px-9">
+    <section className="py-16 lg:py-24 px-4 lg:px-9">
       <FadeIn className="mx-auto max-w-2xl text-center">
         <blockquote className="text-[18px] leading-[120%] font-normal text-[var(--text-primary)] lg:text-[20px]">
           &ldquo;{quote}&rdquo;

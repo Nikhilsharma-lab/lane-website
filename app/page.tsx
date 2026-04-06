@@ -25,23 +25,66 @@ const testimonials = {
   },
 }
 
+/**
+ * WireframeCell — full-width horizontal dashed borders with vertical rail insets.
+ * `filled` = bg-lines sections where background fills edge-to-edge between borders.
+ */
+function WireframeCell({ children, filled }: { children: React.ReactNode; filled?: boolean }) {
+  return (
+    <div className="border-b border-dashed border-white/50">
+      <div className="flex">
+        {/* Left rail */}
+        <div className="w-2 lg:w-[66px] shrink-0 border-r border-dashed border-white/50" />
+        {/* Content */}
+        <div className={`flex-1 min-w-0 ${filled ? 'bg-[var(--bg-surface)] bg-lines' : ''}`}>
+          {children}
+        </div>
+        {/* Right rail */}
+        <div className="w-2 lg:w-[66px] shrink-0 border-l border-dashed border-white/50" />
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   return (
     <>
       <Header />
       <main>
-        <Hero />
-        <TrustedBy />
-        <MetricsBar />
-        <HowItWorks />
-        <Testimonial {...testimonials.intake} />
-        <Features />
-        <Testimonial {...testimonials.autonomy} />
-        <AntiSurveillance />
-        <Pricing />
-        <CtaSection />
+        <WireframeCell>
+          <Hero />
+        </WireframeCell>
+        <WireframeCell>
+          <TrustedBy />
+        </WireframeCell>
+        <WireframeCell>
+          <MetricsBar />
+        </WireframeCell>
+        <WireframeCell filled>
+          <HowItWorks />
+        </WireframeCell>
+        <WireframeCell>
+          <Testimonial {...testimonials.intake} />
+        </WireframeCell>
+        <WireframeCell filled>
+          <Features />
+        </WireframeCell>
+        <WireframeCell>
+          <Testimonial {...testimonials.autonomy} />
+        </WireframeCell>
+        <WireframeCell filled>
+          <AntiSurveillance />
+        </WireframeCell>
+        <WireframeCell>
+          <Pricing />
+        </WireframeCell>
+        <WireframeCell>
+          <CtaSection />
+        </WireframeCell>
       </main>
-      <Footer />
+      <WireframeCell>
+        <Footer />
+      </WireframeCell>
     </>
   )
 }

@@ -17,7 +17,7 @@ const logos = [
 export function TrustedBy() {
   return (
     <Fade>
-      <section className="mt-20 lg:mt-30 mb-0 px-4 lg:px-9">
+      <section className="py-10 lg:py-14 px-4 lg:px-9">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left label */}
           <div className="flex items-center gap-3 shrink-0">

@@ -81,10 +81,10 @@ export function HowItWorks() {
   const [activeTab, setActiveTab] = useState(0)
 
   return (
-    <section id="how-it-works" className="my-20 lg:my-30 bg-[var(--bg-surface)] bg-lines px-4 pt-8 pb-16 lg:px-9 lg:pt-12 lg:pb-24">
+    <section id="how-it-works" className="px-4 pt-8 pb-16 lg:px-9 lg:pt-12 lg:pb-24">
       {/* Section header — factory.ai pattern: rule + badge + heading, left-aligned */}
       <FadeIn>
-        <div className="border-t border-[var(--border)] pt-6 mb-12">
+        <div className="pt-6 mb-12">
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',
@@ -161,7 +161,7 @@ export function HowItWorks() {
             </p>
 
             {/* Highlights */}
-            <div className="mt-8 border-t border-[var(--border)] pt-6 space-y-4">
+            <div className="mt-8 pt-6 space-y-4">
               {phases[activeTab].highlights.map((h) => (
                 <div key={h.label} className="flex items-start gap-4">
                   <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)] w-24 shrink-0 pt-px">

@@ -52,10 +52,10 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="my-20 lg:my-30 bg-[var(--bg-surface)] bg-lines px-4 pt-8 pb-16 lg:px-9 lg:pt-12 lg:pb-24">
+    <section id="features" className="px-4 pt-8 pb-16 lg:px-9 lg:pt-12 lg:pb-24">
       {/* Section header */}
       <FadeIn>
-        <div className="border-t border-[var(--border)] pt-6 mb-12">
+        <div className="pt-6 mb-12">
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',

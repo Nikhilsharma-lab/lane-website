@@ -5,7 +5,7 @@ import { ScaleIn } from './motion'
 
 export function CtaSection() {
   return (
-    <section id="early-access" className="my-20 lg:my-30 px-4 lg:px-9">
+    <section id="early-access" className="py-16 lg:py-24 px-4 lg:px-9">
       <ScaleIn>
       <div
         className={cn(

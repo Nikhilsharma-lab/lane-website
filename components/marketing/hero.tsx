@@ -7,7 +7,7 @@ import { FadeIn, ScaleIn, motion } from './motion'
 /* ── Main Hero ── */
 export function Hero() {
   return (
-    <section className="mt-14 lg:mt-18 mb-20 lg:mb-30 px-4 lg:px-9">
+    <section className="py-14 lg:py-18 px-4 lg:px-9">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
 
         {/* ═══ Left: Copy ═══ */}
@@ -176,17 +176,86 @@ export function Hero() {
                 style={{ transformOrigin: '250px 250px' }}
               />
 
-              {/* Central diamond */}
-              <motion.g
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-                style={{ transformOrigin: '250px 250px' }}
-              >
-                <rect x="232" y="232" width="36" height="36" rx="2" transform="rotate(45 250 250)" fill="var(--accent)" opacity="0.12" />
-                <rect x="232" y="232" width="36" height="36" rx="2" transform="rotate(45 250 250)" stroke="var(--accent)" strokeWidth="1" fill="none" opacity="0.6" />
-                <rect x="240" y="240" width="20" height="20" rx="1" transform="rotate(45 250 250)" fill="var(--accent)" opacity="0.25" />
-              </motion.g>
+              {/* Pixel-font "LANE" — terminal typewriter style */}
+              {(() => {
+                const S = 10   // block size
+                const G = 12   // grid step (size + gap)
+                const baseX = 132
+                const baseY = 222
+                // Letters defined column-by-column, left to right for typewriter order
+                const letters: { letter: string; xOff: number; cols: [number, number[]][] }[] = [
+                  { letter: 'L', xOff: 0, cols: [
+                    [0, [0,1,2,3,4]], [1, [4]], [2, [4]], [3, [4]],
+                  ]},
+                  { letter: 'A', xOff: 54, cols: [
+                    [0, [1,2,3,4]], [1, [0,2]], [2, [0,2]], [3, [1,2,3,4]],
+                  ]},
+                  { letter: 'N', xOff: 108, cols: [
+                    [0, [0,1,2,3,4]], [1, [1]], [2, [2]], [3, [0,1,2,3,4]],
+                  ]},
+                  { letter: 'E', xOff: 162, cols: [
+                    [0, [0,1,2,3,4]], [1, [0,2,4]], [2, [0,2,4]], [3, [0,4]],
+                  ]},
+                ]
+                // Flatten all blocks in typewriter order (column by column, top to bottom within column)
+                const allBlocks: { x: number; y: number; letter: string; seq: number }[] = []
+                let seq = 0
+                for (const l of letters) {
+                  for (const [c, rows] of l.cols) {
+                    for (const r of rows) {
+                      allBlocks.push({ x: baseX + l.xOff + c * G, y: baseY + r * G, letter: l.letter, seq })
+                      seq++
+                    }
+                  }
+                }
+                const totalBlocks = allBlocks.length
+                const typeDelay = 0.04  // seconds between each block
+                const startDelay = 0.6
+                const totalTypeTime = startDelay + totalBlocks * typeDelay
+                // Cursor position: after the last block of E, bottom-right
+                const lastBlock = allBlocks[allBlocks.length - 1]
+                const cursorX = lastBlock.x + G + 4
+                const cursorY = baseY
+
+                return (
+                  <g>
+                    {allBlocks.map((b, i) => (
+                      <motion.rect
+                        key={`px-${i}`}
+                        x={b.x} y={b.y}
+                        width={S} height={S} rx="1"
+                        fill="var(--text-primary)"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.85 }}
+                        transition={{ duration: 0.05, delay: startDelay + i * typeDelay }}
+                      />
+                    ))}
+                    {/* Blinking cursor — appears after typing, blinks forever */}
+                    <motion.rect
+                      x={cursorX} y={cursorY}
+                      width="3" height={S * 5 + 2 * 4}
+                      fill="var(--accent)"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 0, 1, 1, 0] }}
+                      transition={{
+                        duration: 1,
+                        delay: totalTypeTime + 0.1,
+                        repeat: Infinity,
+                        times: [0, 0.49, 0.5, 0.99, 1],
+                      }}
+                    />
+                    {/* Accent dot after E — types in last */}
+                    <motion.rect
+                      x={baseX + 162 + 4 * G} y={baseY + 4 * G}
+                      width={S} height={S} rx="1"
+                      fill="var(--accent)"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.05, delay: totalTypeTime }}
+                    />
+                  </g>
+                )
+              })()}
 
               {/* Orbiting dots */}
               {[0, 120, 240].map((offset, i) => (

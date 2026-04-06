@@ -26,7 +26,7 @@ const metrics = [
 
 export function MetricsBar() {
   return (
-    <section className="my-20 lg:my-30 px-4 lg:px-9">
+    <section className="py-16 lg:py-24 px-4 lg:px-9">
       <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
         {metrics.map((m) => (
           <StaggerItem key={m.label}>
