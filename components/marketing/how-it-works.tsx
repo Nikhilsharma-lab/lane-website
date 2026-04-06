@@ -32,11 +32,11 @@ const phases = [
     label: '02 Design',
     heading: 'Five stages. No deadlines. No surveillance.',
     description:
-      "Designers move freely between Sense, Frame, Diverge, Converge, and Prove. Progress is captured through reflections — the designer's own words — not forced status updates.",
+      "These aren't columns on a board — they're modes of thinking. Sense the problem deeply. Frame what's actually being solved. Diverge into multiple directions. Converge on the strongest one. Prove it with three sign-offs before anything goes to dev. Designers move between them freely, at their own pace. Progress is captured through reflections — the designer's own words — never a status update for a manager.",
     highlights: [
       { label: 'Stages', value: 'Sense → Frame → Diverge → Converge → Prove' },
-      { label: 'Tracking', value: 'Reflections, not timers' },
-      { label: 'AI nudges', value: 'Private to designer only' },
+      { label: 'Progress', value: 'Reflections, not status updates' },
+      { label: 'AI nudges', value: 'Private to designer — never escalated' },
     ],
     screenshot: {
       file: 'design.png',

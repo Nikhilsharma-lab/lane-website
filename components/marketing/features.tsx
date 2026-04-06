@@ -44,9 +44,9 @@ const features = [
   },
   {
     icon: BellRing,
-    title: 'Proactive Alerts',
+    title: 'Idea Board',
     description:
-      'AI-decided push notifications come to you. Designer stuck 5+ days, sign-off overdue, bet deferred 3 times — the system surfaces decisions before they become problems.',
+      'Anyone in the org submits ideas. The org votes anonymously. Top-voted ideas are validated by AI and the Design Head — approved ones auto-create a problem-framed request. Democratises problem sourcing beyond PMs.',
   },
 ]
 
