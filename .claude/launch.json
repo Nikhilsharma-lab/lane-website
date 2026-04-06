@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "lane-website",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 3001
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["-c", "source /Users/yashkaushal/.nvm/nvm.sh && npm run dev"],
+      "autoPort": true
     }
   ]
 }

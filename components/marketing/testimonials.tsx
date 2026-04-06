@@ -1,6 +1,8 @@
-import { cn } from '@/lib/utils'
+'use client'
 
-interface TestimonialProps {
+import { FadeIn } from './motion'
+
+export interface TestimonialProps {
   quote: string
   author: string
   role: string
@@ -8,30 +10,15 @@ interface TestimonialProps {
 
 export function Testimonial({ quote, author, role }: TestimonialProps) {
   return (
-    <section className="px-6 py-12 lg:px-8 lg:py-16">
-      <div className="mx-auto max-w-2xl text-center">
-        <blockquote className="text-[18px] leading-relaxed text-[var(--text-primary)] lg:text-[20px]">
+    <section className="my-20 lg:my-30 px-4 lg:px-9">
+      <FadeIn className="mx-auto max-w-2xl text-center">
+        <blockquote className="text-[18px] leading-[120%] font-normal text-[var(--text-primary)] lg:text-[20px]">
           &ldquo;{quote}&rdquo;
         </blockquote>
-        <p className="mt-4 font-mono text-[13px] text-[var(--text-tertiary)]">
+        <p className="mt-4 font-mono text-[14px] leading-none tracking-[-0.0175rem] text-[var(--text-tertiary)]">
           └ {author}, {role}
         </p>
-      </div>
+      </FadeIn>
     </section>
   )
-}
-
-export const testimonials = {
-  intake: {
-    quote:
-      'We spent more time arguing about what to build than actually building it. The intake gate changed that overnight.',
-    author: 'Design Lead',
-    role: 'Series B Fintech',
-  },
-  autonomy: {
-    quote:
-      "For the first time, our design tool doesn't feel like it was built to spy on us. It actually helps.",
-    author: 'Senior Designer',
-    role: 'Growth Startup',
-  },
 }

@@ -1,12 +1,15 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
+import { FadeIn, Stagger, StaggerItem } from './motion'
 
 const tiers = [
   {
     name: 'Starter',
     price: '$99',
     period: '/month',
-    description: '1–3 person design team',
+    description: '1-3 person design team',
     highlighted: false,
     features: [
       'AI intake gate',
@@ -22,7 +25,7 @@ const tiers = [
     name: 'Professional',
     price: '$299',
     period: '/month',
-    description: '4–10 person team',
+    description: '4-10 person team',
     highlighted: true,
     features: [
       'Everything in Starter',
@@ -56,92 +59,108 @@ const tiers = [
 
 export function Pricing() {
   return (
-    <section id="pricing" className="px-6 py-16 lg:px-8 lg:py-24">
-      <div className="mx-auto max-w-[1920px]">
-        <div className="flex justify-center mb-6">
+    <section id="pricing" className="my-20 lg:my-30 px-4 lg:px-9">
+      {/* Section header */}
+      <FadeIn>
+        <div className="border-t border-[var(--border)] pt-6 mb-12">
           <span
             className={cn(
-              'inline-flex items-center gap-2 rounded-full px-3 py-1',
-              'border border-[var(--border)] bg-[var(--bg-surface)]',
-              'font-mono text-[12px] uppercase tracking-[-0.015rem] text-[var(--text-tertiary)]'
+              'inline-flex items-center gap-3 mb-6',
+              'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
             )}
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+            <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
             Pricing
           </span>
+          <h2
+            className={cn(
+              'text-[30px] leading-[100%] tracking-[-0.05625rem]',
+              'lg:text-[48px] lg:tracking-[-0.09rem]',
+              'font-normal text-[var(--text-primary)]'
+            )}
+          >
+            Pricing Plans
+          </h2>
         </div>
+      </FadeIn>
 
-        <h2
-          className={cn(
-            'text-center',
-            'text-[30px] leading-[100%] tracking-[-0.05625rem]',
-            'lg:text-[48px] lg:tracking-[-0.09rem]',
-            'font-semibold text-[var(--text-primary)]'
-          )}
-        >
-          Simple pricing.
-          <br />
-          <span className="text-[var(--text-secondary)]">No per-seat games.</span>
-        </h2>
-
-        <p className="mt-4 text-center text-[15px] text-[var(--text-secondary)]">
-          Flat-rate plans. Save 8% with annual billing.
-        </p>
-
-        <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6 max-w-5xl mx-auto">
-          {tiers.map((tier) => (
-            <div
-              key={tier.name}
-              className={cn(
-                'rounded-xl border p-6 lg:p-8 flex flex-col',
-                tier.highlighted
-                  ? 'border-[var(--accent)] bg-[var(--bg-surface)]'
-                  : 'border-[var(--border)] bg-[var(--bg-surface)]'
-              )}
-            >
-              <div>
-                <h3 className="font-mono text-[12px] uppercase tracking-wider text-[var(--text-tertiary)]">
-                  {tier.name}
-                </h3>
-                <div className="mt-3 flex items-baseline gap-1">
-                  <span className="text-[36px] font-semibold tracking-tight text-[var(--text-primary)]">
-                    {tier.price}
+      {/* 3 tier cards */}
+      <Stagger className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
+        {tiers.map((tier, i) => (
+          <StaggerItem
+            key={tier.name}
+            className={cn(
+              'rounded-[0.375rem] border p-6 lg:p-8 flex flex-col',
+              tier.highlighted
+                ? 'border-[var(--accent)] bg-[var(--bg-surface)]'
+                : 'border-[var(--border)] bg-[var(--bg-surface)]'
+            )}
+          >
+            <div>
+              {/* Numbered badge — factory.ai pricing pattern */}
+              <span className="font-mono text-[12px] leading-none tracking-[-0.015rem] text-[var(--accent)]">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 className="mt-3 font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]">
+                {tier.name}
+              </h3>
+              <div className="mt-4 flex items-baseline gap-1">
+                <span className="text-[36px] font-normal tracking-tight text-[var(--text-primary)]">
+                  {tier.price}
+                </span>
+                {tier.period && (
+                  <span className="font-mono text-[14px] text-[var(--text-tertiary)]">
+                    {tier.period}
                   </span>
-                  {tier.period && (
-                    <span className="text-[14px] text-[var(--text-tertiary)]">
-                      {tier.period}
-                    </span>
-                  )}
-                </div>
-                <p className="mt-1 text-[13px] text-[var(--text-secondary)]">
-                  {tier.description}
-                </p>
+                )}
               </div>
+              <p className="mt-2 font-mono text-[14px] leading-[120%] tracking-[-0.0175rem] text-[var(--text-secondary)]">
+                {tier.description}
+              </p>
+            </div>
 
-              <ul className="mt-6 flex-1 space-y-3">
-                {tier.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2">
-                    <Check size={14} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                    <span className="text-[13px] text-[var(--text-secondary)]">{f}</span>
-                  </li>
-                ))}
-              </ul>
+            <ul className="mt-6 flex-1 space-y-3">
+              {tier.features.map((f) => (
+                <li key={f} className="flex items-start gap-2">
+                  <Check size={14} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                  <span className="text-[14px] leading-[120%] text-[var(--text-secondary)]">{f}</span>
+                </li>
+              ))}
+            </ul>
 
-              <a
-                href="#early-access"
+            {/* Button — factory.ai charcoal style */}
+            <a
+              href="#early-access"
+              className={cn(
+                'group relative mt-8 inline-flex items-center justify-center',
+                'h-[31px] rounded-sm border border-transparent px-[14px]',
+                'bg-[var(--btn-bg)] transition-colors duration-150',
+                'hover:bg-[var(--btn-bg-hover)]',
+                'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem]',
+                'text-[var(--btn-text)] hover:text-[var(--btn-text-hover)]'
+              )}
+              style={{ '--lines-color': 'var(--btn-lines-color)' } as React.CSSProperties}
+            >
+              <span className="relative z-10">{tier.cta}</span>
+              <span
                 className={cn(
-                  'mt-8 inline-flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition-colors',
-                  tier.highlighted
-                    ? 'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] relative overflow-hidden before:absolute before:inset-0 before:opacity-0 before:transition-opacity hover:before:opacity-100 before:bg-[repeating-linear-gradient(45deg,transparent,transparent_4px,rgba(255,255,255,0.1)_4px,rgba(255,255,255,0.1)_8px)] before:[animation:slidePattern_1s_linear_infinite]'
-                    : 'border border-[var(--border)] bg-[var(--bg-base)]/50 backdrop-blur-md text-[var(--text-secondary)] hover:bg-[var(--bg-hover)] hover:text-[var(--text-primary)]'
+                  'pointer-events-none absolute inset-0 rounded-sm opacity-0',
+                  'group-hover:[animation:delayedFadeIn_100ms_ease-out_forwards]'
                 )}
               >
-                {tier.cta}
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
+                <span
+                  className={cn(
+                    'absolute inset-0',
+                    '[background-image:repeating-linear-gradient(45deg,transparent_0px,transparent_2px,var(--lines-color)_2px,var(--lines-color)_3px,transparent_3px,transparent_5px)]',
+                    '[background-size:7.07px_7.07px]',
+                    '[animation:slidePattern_2000ms_linear_infinite]'
+                  )}
+                />
+              </span>
+            </a>
+          </StaggerItem>
+        ))}
+      </Stagger>
     </section>
   )
 }

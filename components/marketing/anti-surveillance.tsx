@@ -1,5 +1,8 @@
+'use client'
+
 import { cn } from '@/lib/utils'
 import { EyeOff, Clock, Gauge, MessageSquareOff } from 'lucide-react'
+import { FadeIn, Stagger, StaggerItem } from './motion'
 
 const pledges = [
   {
@@ -26,62 +29,57 @@ const pledges = [
 
 export function AntiSurveillance() {
   return (
-    <section className="px-6 py-16 lg:px-8 lg:py-24">
-      <div className="mx-auto max-w-[1920px]">
-        <div className="flex justify-center mb-6">
+    <section className="my-20 lg:my-30 bg-[var(--bg-surface)] bg-lines px-4 pt-8 pb-16 lg:px-9 lg:pt-12 lg:pb-24">
+      {/* Section header */}
+      <FadeIn>
+        <div className="border-t border-[var(--border)] pt-6 mb-12">
           <span
             className={cn(
-              'inline-flex items-center gap-2 rounded-full px-3 py-1',
-              'border border-[var(--border)] bg-[var(--bg-surface)]',
-              'font-mono text-[12px] uppercase tracking-[-0.015rem] text-[var(--text-tertiary)]'
+              'inline-flex items-center gap-3 mb-6',
+              'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
             )}
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+            <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
             Our pledge
           </span>
+          <h2
+            className={cn(
+              'text-[30px] leading-[100%] tracking-[-0.05625rem]',
+              'lg:text-[48px] lg:tracking-[-0.09rem]',
+              'font-normal text-[var(--text-primary)]'
+            )}
+          >
+            Support, not surveillance.
+          </h2>
         </div>
+      </FadeIn>
 
-        <h2
-          className={cn(
-            'text-center',
-            'text-[30px] leading-[100%] tracking-[-0.05625rem]',
-            'lg:text-[48px] lg:tracking-[-0.09rem]',
-            'font-semibold text-[var(--text-primary)]'
-          )}
-        >
-          Support, not surveillance.
-        </h2>
-
-        <p className="mt-4 text-center text-[15px] text-[var(--text-secondary)] max-w-xl mx-auto">
-          These aren&apos;t toggles you can turn off. They&apos;re hard constraints baked into
-          Lane&apos;s architecture. No exceptions, no admin overrides.
-        </p>
-
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
-          {pledges.map((p) => {
-            const Icon = p.icon
-            return (
+      {/* 4-card grid */}
+      <Stagger className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
+        {pledges.map((p) => {
+          const Icon = p.icon
+          return (
+            <StaggerItem key={p.never} className="h-full">
               <div
-                key={p.never}
                 className={cn(
-                  'rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-6',
-                  'transition-colors hover:border-[var(--border-strong)]'
+                  'h-full rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)] p-6',
+                  'transition-colors duration-200 hover:border-[var(--border-strong)]'
                 )}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <Icon size={18} className="text-[var(--accent)]" />
-                  <h3 className="text-[15px] font-semibold text-[var(--text-primary)]">
+                  <h3 className="text-[15px] font-normal text-[var(--text-primary)]">
                     {p.never}
                   </h3>
                 </div>
-                <p className="text-[13px] leading-relaxed text-[var(--text-secondary)]">
+                <p className="font-mono text-[14px] leading-[120%] tracking-[-0.0175rem] text-[var(--text-secondary)]">
                   {p.instead}
                 </p>
               </div>
-            )
-          })}
-        </div>
-      </div>
+            </StaggerItem>
+          )
+        })}
+      </Stagger>
     </section>
   )
 }

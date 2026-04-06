@@ -1,12 +1,16 @@
+'use client'
+
 import { cn } from '@/lib/utils'
+import { FadeIn } from './motion'
 
 const columns = [
   {
-    title: 'Product',
+    title: 'Resources',
     links: [
       { label: 'How it works', href: '#how-it-works' },
       { label: 'Features', href: '#features' },
       { label: 'Pricing', href: '#pricing' },
+      { label: 'Docs', href: '#' },
     ],
   },
   {
@@ -14,56 +18,61 @@ const columns = [
     links: [
       { label: 'About', href: '#' },
       { label: 'Blog', href: '#' },
+      { label: 'Careers', href: '#' },
+      { label: 'Contact', href: '#' },
     ],
   },
   {
     title: 'Legal',
     links: [
-      { label: 'Privacy', href: '#' },
-      { label: 'Terms', href: '#' },
+      { label: 'Privacy Policy', href: '#' },
+      { label: 'Terms of Service', href: '#' },
+      { label: 'SLA', href: '#' },
+      { label: 'DPA', href: '#' },
     ],
   },
 ]
 
 export function Footer() {
   return (
-    <footer className="px-6 pb-6 lg:px-8 lg:pb-8">
-      <div className="mx-auto max-w-[1920px]">
+    <footer className="px-4 lg:px-9 pb-4 lg:pb-10">
+      <FadeIn>
         <div
           className={cn(
-            'rounded-xl lg:rounded-2xl',
-            'border border-[var(--border)] bg-[var(--bg-surface)]',
-            'px-8 py-12 lg:px-12 lg:py-16'
+            'rounded-[0.375rem] bg-[var(--bg-surface)]',
+            'px-6 py-8 lg:px-10 lg:py-10',
+            'flex flex-col min-h-[420px] lg:min-h-[460px]'
           )}
         >
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-12">
-            <div>
-              <span className="text-lg font-semibold tracking-tight text-[var(--text-primary)]">
-                Lane
-              </span>
-              <p className="mt-2 text-[13px] text-[var(--text-tertiary)] max-w-xs">
-                The AI operating system for design teams.
-              </p>
-              <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-3 py-1">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)]">
-                  Anti-surveillance by design
-                </span>
-              </div>
-            </div>
+          {/* Top row: badge left, links right */}
+          <div className="flex flex-col lg:flex-row lg:justify-between gap-10">
+            {/* Badge */}
+            <span
+              className={cn(
+                'inline-flex items-center gap-3 self-start',
+                'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
+              )}
+            >
+              <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
+              Footer
+            </span>
 
-            <div className="grid grid-cols-3 gap-8 lg:gap-16">
+            {/* Link columns */}
+            <div className="flex flex-wrap gap-x-16 gap-y-8">
               {columns.map((col) => (
                 <div key={col.title}>
-                  <h4 className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)]">
+                  <h4 className="font-mono text-[14px] tracking-[-0.0175rem] text-[var(--text-primary)] mb-4">
                     {col.title}
                   </h4>
-                  <ul className="mt-4 space-y-3">
+                  <ul className="space-y-3">
                     {col.links.map((link) => (
                       <li key={link.label}>
                         <a
                           href={link.href}
-                          className="text-[13px] text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                          className={cn(
+                            'font-mono text-[14px] leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]',
+                            'transition-colors duration-200 hover:text-[var(--text-primary)]'
+                          )}
                         >
                           {link.label}
                         </a>
@@ -75,33 +84,61 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--border)] pt-8">
-            <p className="text-[12px] text-[var(--text-tertiary)]">
-              &copy; 2026 Lane. All rights reserved.
-            </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://twitter.com"
-                className="text-[var(--text-tertiary)] transition-colors hover:text-[var(--text-primary)]"
-                aria-label="Twitter"
+          {/* Spacer */}
+          <div className="flex-1" />
+
+          {/* Bottom row: logo left, socials + copyright right */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mt-10">
+            {/* Logo */}
+            <div className="inline-flex items-center text-[var(--text-primary)]">
+              <svg
+                viewBox="0 0 492 101"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-[28px] w-auto"
+                aria-hidden="true"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a
-                href="https://linkedin.com"
-                className="text-[var(--text-tertiary)] transition-colors hover:text-[var(--text-primary)]"
-                aria-label="LinkedIn"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
+                <path d="M0 100V0H93.2753L0 100Z" fill="currentColor" />
+                <path d="M0 100H100V6.7247L0 100Z" fill="currentColor" />
+                <path d="M123 100.231V0H137.823V94.5839L128.788 86.2549H185.679V100.231H123Z" fill="currentColor" />
+                <path d="M197.2 100.231L226.564 0H245.763L275.126 100.231H259.739L236.163 15.3875L212.588 100.231H197.2ZM213.576 74.1142L218.093 60.4208H254.233L258.75 74.1142H213.576Z" fill="currentColor" />
+                <path d="M288.059 100.231V0H306.128L339.021 79.1964V0H353.561V100.231H335.492L302.599 21.0343V100.231H288.059Z" fill="currentColor" />
+                <path d="M375.529 100.231V0H437.079V13.9758H390.352V43.198H435.385V56.7503H390.352V86.2549H438.208V100.231H375.529Z" fill="currentColor" />
+                <rect x="462" y="70" width="30" height="30" fill="var(--accent)" className="[animation:blink_1.4s_ease-in-out_infinite]" />
+              </svg>
+            </div>
+
+            {/* Right: socials + copyright */}
+            <div className="flex flex-col items-start lg:items-end gap-4">
+              {/* Social links */}
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://twitter.com"
+                  className={cn(
+                    'font-mono text-[13px] tracking-[-0.015rem] text-[var(--text-secondary)]',
+                    'transition-colors duration-200 hover:text-[var(--text-primary)]'
+                  )}
+                >
+                  X (Twitter)
+                </a>
+                <span className="text-[var(--text-tertiary)]">,</span>
+                <a
+                  href="https://linkedin.com"
+                  className={cn(
+                    'font-mono text-[13px] tracking-[-0.015rem] text-[var(--text-secondary)]',
+                    'transition-colors duration-200 hover:text-[var(--text-primary)]'
+                  )}
+                >
+                  LinkedIn
+                </a>
+              </div>
+              <p className="font-mono text-[13px] tracking-[-0.015rem] text-[var(--text-tertiary)]">
+                &copy; Lane 2026. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </FadeIn>
     </footer>
   )
 }

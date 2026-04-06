@@ -1,40 +1,66 @@
+'use client'
+
 import { cn } from '@/lib/utils'
+import { Stagger, StaggerItem } from './motion'
 
 const metrics = [
-  { before: '45%', after: '0%', label: 'coordination waste' },
-  { before: '5+', after: '1', label: 'request channels' },
-  { before: '0%', after: '100%', label: 'design ops visibility' },
+  {
+    before: '45%',
+    after: '0%',
+    label: 'Coordination waste',
+    description: 'Eliminated entirely. No more Slack threads, status meetings, or "just checking in."',
+  },
+  {
+    before: '5+',
+    after: '1',
+    label: 'Request channels',
+    description: 'One AI-gated intake. Every request problem-framed before it reaches design.',
+  },
+  {
+    before: '0%',
+    after: '100%',
+    label: 'Design ops visibility',
+    description: 'Weekly AI digests, impact tracking, and PM calibration — without surveillance.',
+  },
 ]
 
 export function MetricsBar() {
   return (
-    <section className="px-6 py-12 lg:px-8 lg:py-16">
-      <div className="mx-auto max-w-[1920px]">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6">
-          {metrics.map((m) => (
+    <section className="my-20 lg:my-30 px-4 lg:px-9">
+      <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
+        {metrics.map((m) => (
+          <StaggerItem key={m.label}>
             <div
-              key={m.label}
               className={cn(
-                'text-center px-6 py-6',
-                'rounded-xl border border-[var(--border)] bg-[var(--bg-surface)]'
+                'flex flex-col px-6 py-8 lg:px-8 lg:py-10 h-full',
+                'rounded-[0.375rem] border border-[var(--border)] bg-[var(--bg-surface)]',
+                'transition-colors duration-200 hover:border-[var(--border-strong)]'
               )}
             >
-              <div className="flex items-center justify-center gap-3">
-                <span className="font-mono text-[14px] text-[var(--text-tertiary)] line-through">
+              {/* Before → After */}
+              <div className="flex items-baseline gap-4">
+                <span className="text-[28px] lg:text-[36px] font-normal tracking-tight leading-none text-[var(--text-tertiary)] line-through decoration-[1.5px] decoration-[var(--text-quaternary)]">
                   {m.before}
                 </span>
-                <span className="text-[var(--text-tertiary)]">&rarr;</span>
-                <span className="text-3xl font-semibold tracking-tight text-[var(--accent)]">
+                <span className="text-[var(--text-quaternary)] text-[16px] font-light">→</span>
+                <span className="text-[42px] lg:text-[56px] font-normal tracking-tight leading-none text-[var(--accent)]">
                   {m.after}
                 </span>
               </div>
-              <p className="mt-2 font-mono text-[12px] uppercase tracking-wider text-[var(--text-tertiary)]">
+
+              {/* Label */}
+              <p className="mt-4 font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-primary)]">
                 {m.label}
               </p>
+
+              {/* Description */}
+              <p className="mt-3 font-mono text-[12px] leading-[150%] tracking-[-0.015rem] text-[var(--text-tertiary)]">
+                {m.description}
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
+          </StaggerItem>
+        ))}
+      </Stagger>
     </section>
   )
 }
