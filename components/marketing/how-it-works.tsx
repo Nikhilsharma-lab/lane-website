@@ -5,9 +5,9 @@ import { cn } from '@/lib/utils'
 import { FadeIn, Stagger, StaggerItem, TabContent } from './motion'
 
 const steps = [
-  'PM brings a problem. AI blocks solutions.',
-  'Designer explores five stages. No deadlines. No surveillance.',
-  'Dev builds. PM measures impact. AI reports weekly.',
+  'PM brings a problem. AI blocks it if it\'s a solution.',
+  'Designer moves through five scientific stages. No deadlines. No timers. No surveillance.',
+  'Dev builds from a locked spec. PM logs actual impact. AI closes the loop.',
 ]
 
 const phases = [
@@ -60,18 +60,18 @@ const phases = [
     },
   },
   {
-    id: 'track',
-    label: '04 Track',
-    heading: 'Predicted vs. actual. No more guessing.',
+    id: 'impact',
+    label: '04 Impact',
+    heading: 'Predicted vs. actual. Close the loop.',
     description:
-      'PMs predict impact at intake. After shipping, they log actual results. AI compares the two and generates impact narratives.',
+      'PMs predict impact at intake. After shipping, they log actual results. AI compares the two, generates a "What We Learned" brief, and builds a rolling calibration score per PM.',
     highlights: [
       { label: 'Input', value: 'PM predicts impact at intake' },
-      { label: 'Output', value: 'AI-generated accuracy score' },
+      { label: 'Output', value: 'AI-generated accuracy score + retrospective' },
       { label: 'Framing', value: 'Calibration, not blame' },
     ],
     screenshot: {
-      file: 'track.png',
+      file: 'impact.png',
       hint: 'Show the impact comparison view with predicted vs actual metrics',
     },
   },
@@ -101,7 +101,9 @@ export function HowItWorks() {
               'font-normal text-[var(--text-primary)]'
             )}
           >
-            Four phases. One system.
+            From idea to impact.
+            <br />
+            One system.
           </h2>
         </div>
       </FadeIn>

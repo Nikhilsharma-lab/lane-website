@@ -36,9 +36,11 @@ export function Hero() {
                 'font-normal text-[var(--text-primary)]'
               )}
             >
-              Agent-Native
+              The AI chief of staff
               <br />
-              Design Ops
+              your design team
+              <br />
+              never had
               <span className="text-[var(--accent)]">.</span>
             </h1>
           </FadeIn>
@@ -52,9 +54,10 @@ export function Hero() {
                 'text-[var(--text-secondary)] max-w-md'
               )}
             >
-              The only AI operating system built for design teams.
-              From intake to impact — delegate coordination,
-              protect creative autonomy, ship with confidence.
+              Built for design teams, not adapted for them.
+              From the moment a PM has a problem to the moment
+              you measure whether it actually worked — one system.
+              AI runs the ops. You lead the design.
             </p>
           </FadeIn>
 
@@ -65,8 +68,8 @@ export function Hero() {
                 'text-[var(--text-tertiary)] max-w-md'
               )}
             >
-              Set up in an hour. Run your design org forever.
               No surveillance. No forced status updates.
+              No tools built for developers that designers have to borrow.
             </p>
           </FadeIn>
 

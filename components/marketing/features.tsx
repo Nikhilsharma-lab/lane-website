@@ -16,37 +16,37 @@ const features = [
     icon: ShieldCheck,
     title: 'AI Intake Gate',
     description:
-      'Blocks solution-specific requests automatically. Extracts the real problem from hybrid submissions. AI-generated priority, complexity, and type with reasoning.',
+      'Blocks solution-specific requests before they reach design. Extracts the real problem from hybrid submissions. AI-generated priority, complexity, and assignment — with reasoning, not dropdowns.',
   },
   {
-    icon: BellRing,
-    title: 'Private AI Nudges',
+    icon: Palette,
+    title: 'Design Radar',
     description:
-      'Contextual nudges go to the designer first. Never escalated to leads automatically. Friendly tone, not surveillance language.',
-  },
-  {
-    icon: CheckCheck,
-    title: '3-Sign-Off Quality Gate',
-    description:
-      'Designer, PM, and Design Head must all approve. Structured feedback on rejection. Nothing ships without design QA.',
+      'The Design Head\'s Monday morning view. Who\'s in flow, who\'s stuck, what shipped, what\'s at risk — in under 10 seconds. Replaces the standing standup.',
   },
   {
     icon: FileText,
-    title: 'Weekly AI Digest',
+    title: 'AI Context Brief',
     description:
-      'Auto-generated narrative every Friday. Shipped work, team health, recommendations. Design Head gets the full picture in 30 seconds.',
+      'When a designer opens a request, an AI-generated brief appears instantly: plain-language rewrite, related past work, key constraints, questions to ask, and exploration directions.',
+  },
+  {
+    icon: CheckCheck,
+    title: 'Handoff Intelligence',
+    description:
+      'AI-generated handoff brief for devs at the moment of handoff. Design files locked at handoff — post-handoff Figma changes trigger automatic dev alerts.',
   },
   {
     icon: Target,
     title: 'PM Calibration',
     description:
-      'Predicted vs. actual impact comparison. Rolling accuracy score per PM. Framed as calibration, not blame.',
+      'PMs predict impact at intake. After shipping, they log actuals. AI compares the two, builds a rolling accuracy score, and generates a "What We Learned" brief. Framed as calibration, not blame.',
   },
   {
-    icon: Palette,
-    title: 'Figma Integration',
+    icon: BellRing,
+    title: 'Proactive Alerts',
     description:
-      'Design files locked at handoff. Post-handoff changes trigger dev alerts. Version history preserved automatically.',
+      'AI-decided push notifications come to you. Designer stuck 5+ days, sign-off overdue, bet deferred 3 times — the system surfaces decisions before they become problems.',
   },
 ]
 
@@ -72,7 +72,9 @@ export function Features() {
               'font-normal text-[var(--text-primary)]'
             )}
           >
-            The AI runs operations.
+            AI runs the ops.
+            <br />
+            You lead the design.
           </h2>
         </div>
       </FadeIn>

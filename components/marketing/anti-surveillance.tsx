@@ -8,22 +8,22 @@ const pledges = [
   {
     icon: Gauge,
     never: 'No utilization percentages',
-    instead: 'Designers set their own capacity. Leads see team health signals, never individual tracking.',
+    instead: 'Designers set their own capacity preferences. Leads see team health signals — Available, Stretched, Overloaded — never individual tracking.',
   },
   {
     icon: Clock,
-    never: 'No "last seen" timestamps',
-    instead: 'Privacy is the default. Activity data belongs to the individual, not their manager.',
+    never: 'No "last active" timestamps',
+    instead: 'Privacy is the default. Lane never tracks time per task, screen activity, or Figma frequency.',
   },
   {
     icon: EyeOff,
-    never: 'No speed rankings',
-    instead: 'Impact, not velocity. We measure what changed for users, not how fast you moved.',
+    never: 'No individual speed rankings',
+    instead: 'We measure impact, not velocity. What changed for users — not how fast the designer moved.',
   },
   {
     icon: MessageSquareOff,
     never: 'No forced status updates',
-    instead: "Reflections are the designer's own words, shared when they're ready. No rush.",
+    instead: "Reflections are the designer's own words, in their own time. AI nudges go to the designer first — never escalated to their manager automatically.",
   },
 ]
 

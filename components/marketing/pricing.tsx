@@ -9,15 +9,16 @@ const tiers = [
     name: 'Starter',
     price: '$99',
     period: '/month',
-    description: '1-3 person design team',
+    description: '1–3 person design team',
     highlighted: false,
     features: [
       'AI intake gate',
       '4-phase workflow',
-      'Figma integration',
+      'Figma OAuth + version locking',
       '3-sign-off quality gate',
       'Designer reflections',
       'Dev kanban with Design QA',
+      'Weekly AI digest',
     ],
     cta: 'Get Started',
   },
@@ -25,17 +26,19 @@ const tiers = [
     name: 'Professional',
     price: '$299',
     period: '/month',
-    description: '4-10 person team',
+    description: '4–10 person team',
     highlighted: true,
     features: [
       'Everything in Starter',
-      'Weekly AI digest',
+      'Design Radar',
+      'AI Context Brief',
+      'Handoff Intelligence',
+      'Dev Board',
+      'Projects (multi-product)',
       'PM calibration scores',
       'Idea Board with voting',
       'Private AI nudges',
       'Morning briefings',
-      'Capacity dashboard',
-      'Smart assignment',
     ],
     cta: 'Get Started',
   },
@@ -47,11 +50,12 @@ const tiers = [
     highlighted: false,
     features: [
       'Everything in Professional',
-      'Custom integrations',
-      'Dedicated support',
+      'Lane Agent',
+      'Skills System',
+      'Figma Agent',
+      'Cross-tool integrations',
       'SSO & advanced security',
-      'Custom onboarding',
-      'SLA guarantee',
+      'Dedicated support + SLA',
     ],
     cta: 'Contact Us',
   },
@@ -79,7 +83,7 @@ export function Pricing() {
               'font-normal text-[var(--text-primary)]'
             )}
           >
-            Pricing Plans
+            Flat-rate. No per-seat confusion.
           </h2>
         </div>
       </FadeIn>

@@ -5,22 +5,22 @@ import { Stagger, StaggerItem } from './motion'
 
 const metrics = [
   {
-    before: '45%',
+    before: '20 min',
+    after: '0',
+    label: 'Monday morning reconstruction',
+    description: 'No more Slack DMs to find out who\'s blocked. Design Radar shows team status in under 10 seconds.',
+  },
+  {
+    before: '40%',
     after: '0%',
-    label: 'Coordination waste',
-    description: 'Eliminated entirely. No more Slack threads, status meetings, or "just checking in."',
+    label: 'Ops overhead for design leads',
+    description: 'AI runs the daily ops cycle. Leads spend time leading design, not chasing status updates.',
   },
   {
-    before: '5+',
-    after: '1',
-    label: 'Request channels',
-    description: 'One AI-gated intake. Every request problem-framed before it reaches design.',
-  },
-  {
-    before: '0%',
+    before: '0',
     after: '100%',
-    label: 'Design ops visibility',
-    description: 'Weekly AI digests, impact tracking, and PM calibration — without surveillance.',
+    label: 'Impact accountability',
+    description: 'PMs predict impact at intake, log actuals after shipping. Every request closes the loop.',
   },
 ]
 

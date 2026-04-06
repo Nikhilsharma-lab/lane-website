@@ -54,7 +54,7 @@ export function Footer() {
               )}
             >
               <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
-              Footer
+              Own your lane.
             </span>
 
             {/* Link columns */}

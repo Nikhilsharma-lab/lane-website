@@ -1,6 +1,7 @@
 import { Header } from '@/components/marketing/header'
 import { Hero } from '@/components/marketing/hero'
 import { MetricsBar } from '@/components/marketing/metrics-bar'
+import { BeforeAfter } from '@/components/marketing/before-after'
 import { TrustedBy } from '@/components/marketing/trusted-by'
 import { HowItWorks } from '@/components/marketing/how-it-works'
 import { Testimonial } from '@/components/marketing/testimonials'
@@ -59,6 +60,9 @@ export default function Home() {
         </WireframeCell>
         <WireframeCell>
           <MetricsBar />
+        </WireframeCell>
+        <WireframeCell filled>
+          <BeforeAfter />
         </WireframeCell>
         <WireframeCell filled>
           <HowItWorks />
