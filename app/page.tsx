@@ -11,17 +11,17 @@ import { CtaSection } from '@/components/marketing/cta-section'
 import { Footer, FooterBar } from '@/components/marketing/footer'
 
 const testimonials = {
-  intake: {
+  wedge: {
     quote:
-      'We spent more time arguing about what to build than actually building it. The intake gate changed that overnight.',
-    author: 'Design Lead',
-    role: 'Series B Fintech',
+      "Every tool I tried treated my designers like engineers with deadlines. They aren't. The work doesn't fit on a Gantt chart, and pretending it does is why design teams burn out.",
+    author: 'Nischal',
+    role: 'Co-Founder',
   },
-  autonomy: {
+  manifesto: {
     quote:
-      "For the first time, our design tool doesn't feel like it was built to spy on us. It actually helps.",
-    author: 'Senior Designer',
-    role: 'Growth Startup',
+      "Surveillance produces performance. Support produces truth. We built Lane on that line, because every dashboard I've ever shown a designer made them slower, not better.",
+    author: 'Nikhil',
+    role: 'Founder',
   },
 }
 
@@ -64,13 +64,13 @@ export default function Home() {
           <HowItWorks />
         </WireframeCell>
         <WireframeCell>
-          <Testimonial {...testimonials.intake} />
+          <Testimonial {...testimonials.wedge} />
         </WireframeCell>
         <WireframeCell filled>
           <Features />
         </WireframeCell>
         <WireframeCell>
-          <Testimonial {...testimonials.autonomy} />
+          <Testimonial {...testimonials.manifesto} />
         </WireframeCell>
         <WireframeCell filled>
           <AntiSurveillance />
