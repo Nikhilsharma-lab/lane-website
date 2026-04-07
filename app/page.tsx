@@ -2,7 +2,6 @@ import { Header } from '@/components/marketing/header'
 import { Hero } from '@/components/marketing/hero'
 import { MetricsBar } from '@/components/marketing/metrics-bar'
 import { BeforeAfter } from '@/components/marketing/before-after'
-import { TrustedBy } from '@/components/marketing/trusted-by'
 import { HowItWorks } from '@/components/marketing/how-it-works'
 import { Testimonial } from '@/components/marketing/testimonials'
 import { Features } from '@/components/marketing/features'
@@ -54,9 +53,6 @@ export default function Home() {
       <main>
         <WireframeCell>
           <Hero />
-        </WireframeCell>
-        <WireframeCell>
-          <TrustedBy />
         </WireframeCell>
         <WireframeCell>
           <MetricsBar />
