@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils'
 import { ScaleIn } from './motion'
+import { WaitlistForm } from './waitlist-form'
 
 export function CtaSection() {
   return (
@@ -28,50 +29,7 @@ export function CtaSection() {
           Lane optimizes for truth.
         </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="mailto:yash@lane.so?subject=Early%20Access%20Request"
-            className={cn(
-              'group relative inline-flex items-center justify-center',
-              'h-btn-md rounded-xs border border-transparent px-3.5',
-              'bg-inverted-ink transition-colors duration-150',
-              'hover:bg-inverted-line',
-              'font-mono text-base uppercase leading-none',
-              'text-inverted hover:text-inverted-ink'
-            )}
-            style={{ '--lines-color': 'var(--color-inverted-subtle)' } as React.CSSProperties}
-          >
-            <span className="relative z-10">Request Early Access</span>
-            <span
-              className={cn(
-                'pointer-events-none absolute inset-0 rounded-xs opacity-0',
-                'group-hover:[animation:delayedFadeIn_100ms_ease-out_forwards]'
-              )}
-            >
-              <span
-                className={cn(
-                  'absolute inset-0 bg-stripe',
-                  '[animation:slidePattern_2000ms_linear_infinite]'
-                )}
-              />
-            </span>
-          </a>
-
-          <a
-            href="mailto:yash@lane.so?subject=Book%20a%20Demo"
-            className={cn(
-              'relative inline-flex items-center',
-              'font-mono text-base uppercase leading-none',
-              'text-inverted-muted transition-colors duration-200',
-              'hover:text-inverted-ink',
-              'after:absolute after:-bottom-px after:left-0 after:h-px after:w-0',
-              'after:bg-current after:transition-all after:duration-300 after:ease-in-out',
-              'hover:after:w-full'
-            )}
-          >
-            Book a Demo
-          </a>
-        </div>
+        <WaitlistForm />
       </ScaleIn>
     </section>
   )
