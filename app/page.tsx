@@ -1,5 +1,6 @@
 import { Header } from '@/components/marketing/header'
 import { Hero } from '@/components/marketing/hero'
+import { VocabularyMarquee } from '@/components/marketing/vocabulary-marquee'
 import { MetricsBar } from '@/components/marketing/metrics-bar'
 import { BeforeAfter } from '@/components/marketing/before-after'
 import { HowItWorks } from '@/components/marketing/how-it-works'
@@ -7,6 +8,7 @@ import { Testimonial } from '@/components/marketing/testimonials'
 import { Features } from '@/components/marketing/features'
 import { AntiSurveillance } from '@/components/marketing/anti-surveillance'
 import { Pricing } from '@/components/marketing/pricing'
+import { Faq } from '@/components/marketing/faq'
 import { CtaSection } from '@/components/marketing/cta-section'
 import { Footer, FooterBar } from '@/components/marketing/footer'
 
@@ -55,10 +57,13 @@ export default function Home() {
           <Hero />
         </WireframeCell>
         <WireframeCell>
-          <MetricsBar />
+          <VocabularyMarquee />
         </WireframeCell>
         <WireframeCell filled>
           <BeforeAfter />
+        </WireframeCell>
+        <WireframeCell>
+          <MetricsBar />
         </WireframeCell>
         <WireframeCell filled>
           <HowItWorks />
@@ -77,6 +82,9 @@ export default function Home() {
         </WireframeCell>
         <WireframeCell>
           <Pricing />
+        </WireframeCell>
+        <WireframeCell filled>
+          <Faq />
         </WireframeCell>
         <WireframeCell>
           <CtaSection />

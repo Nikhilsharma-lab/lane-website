@@ -80,35 +80,6 @@ export function AntiSurveillance() {
           )
         })}
       </Stagger>
-
-      {/* Vocabulary strip */}
-      <FadeIn delay={0.2}>
-        <div className="mt-16 pt-10 border-t border-line">
-          <p className="font-mono text-xs uppercase tracking-wider text-ink-subtle mb-6">
-            We even think differently about words
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4">
-            {[
-              { instead: 'Status update', we: 'Reflection' },
-              { instead: 'Due date', we: 'Appetite' },
-              { instead: 'Sprint', we: 'Cycle' },
-              { instead: 'Velocity', we: 'Throughput' },
-              { instead: 'Utilization', we: 'Capacity' },
-              { instead: 'Ticket', we: 'Request' },
-            ].map((v) => (
-              <div key={v.instead} className="flex items-baseline gap-3">
-                <span className="font-mono text-sm text-ink-subtle line-through decoration-1">
-                  {v.instead}
-                </span>
-                <span className="font-mono text-xs text-ink-subtle">→</span>
-                <span className="font-mono text-sm text-ink">
-                  {v.we}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </FadeIn>
     </section>
   )
 }
