@@ -42,3 +42,5 @@ next-env.d.ts
 
 # internal docs (not for public repo)
 lane docs/
+LANE-WEBSITE.md
+LANE-BACKLOG.md
