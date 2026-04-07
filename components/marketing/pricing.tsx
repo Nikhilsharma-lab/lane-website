@@ -1,16 +1,19 @@
 'use client'
 
+import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
 import { FadeIn, Stagger, StaggerItem } from './motion'
 
+const PRICE_PER_SEAT_MONTHLY = 29
+const PRICE_PER_SEAT_ANNUAL = 23
+const MIN_SEATS = 3
+
 const tiers = [
   {
-    name: 'Starter',
-    price: '$99',
-    period: '/month',
-    description: '1–3 person design team',
-    highlighted: false,
+    name: 'Team',
+    pricing: 'per-seat' as const,
+    highlighted: true,
     features: [
       'AI intake gate',
       '4-phase workflow',
@@ -19,37 +22,21 @@ const tiers = [
       'Designer reflections',
       'Dev kanban with Design QA',
       'Weekly AI digest',
-    ],
-    cta: 'Get Started',
-  },
-  {
-    name: 'Professional',
-    price: '$299',
-    period: '/month',
-    description: '4–10 person team',
-    highlighted: true,
-    features: [
-      'Everything in Starter',
       'Design Radar',
       'AI Context Brief',
       'Handoff Intelligence',
-      'Dev Board',
-      'Projects (multi-product)',
       'PM calibration scores',
       'Idea Board with voting',
-      'Private AI nudges',
-      'Morning briefings',
     ],
-    cta: 'Get Started',
+    cta: 'Request Early Access',
   },
   {
     name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    description: '10+ seats, SLA',
+    pricing: 'custom' as const,
+    description: 'SSO, SLA, dedicated support',
     highlighted: false,
     features: [
-      'Everything in Professional',
+      'Everything in Team',
       'Lane Agent',
       'Skills System',
       'Figma Agent',
@@ -62,11 +49,15 @@ const tiers = [
 ]
 
 export function Pricing() {
+  const [annual, setAnnual] = useState(false)
+  const seatPrice = annual ? PRICE_PER_SEAT_ANNUAL : PRICE_PER_SEAT_MONTHLY
+  const minTotal = seatPrice * MIN_SEATS
+
   return (
     <section id="pricing" className="py-16 lg:py-24 px-4 lg:px-9">
       {/* Section header */}
       <FadeIn>
-        <div className="pt-6 mb-12">
+        <div className="pt-6 mb-8">
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',
@@ -83,13 +74,47 @@ export function Pricing() {
               'font-normal text-ink'
             )}
           >
-            Flat-rate. No per-seat confusion.
+            $29 per designer<span className="text-accent">.</span>{' '}That&apos;s it.
           </h2>
         </div>
       </FadeIn>
 
-      {/* 3 tier cards */}
-      <Stagger className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
+      {/* Billing toggle */}
+      <FadeIn delay={0.1}>
+        <div className="mb-12 inline-flex items-center gap-1 rounded-xs border border-line bg-surface p-1">
+          <button
+            type="button"
+            onClick={() => setAnnual(false)}
+            className={cn(
+              'h-btn-sm px-4 rounded-xs',
+              'font-mono text-2xs uppercase tracking-wider transition-colors',
+              !annual
+                ? 'bg-canvas text-ink'
+                : 'text-ink-subtle hover:text-ink-muted'
+            )}
+          >
+            Monthly
+          </button>
+          <button
+            type="button"
+            onClick={() => setAnnual(true)}
+            className={cn(
+              'h-btn-sm px-4 rounded-xs',
+              'font-mono text-2xs uppercase tracking-wider transition-colors',
+              'inline-flex items-center gap-2',
+              annual
+                ? 'bg-canvas text-ink'
+                : 'text-ink-subtle hover:text-ink-muted'
+            )}
+          >
+            Annual
+            <span className="text-accent">Save 20%</span>
+          </button>
+        </div>
+      </FadeIn>
+
+      {/* 2 tier cards */}
+      <Stagger className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">
         {tiers.map((tier, i) => (
           <StaggerItem
             key={tier.name}
@@ -101,26 +126,44 @@ export function Pricing() {
             )}
           >
             <div>
-              {/* Numbered badge — factory.ai pricing pattern */}
+              {/* Numbered badge */}
               <span className="font-mono text-xs leading-none text-accent">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <h3 className="mt-3 font-mono text-base uppercase leading-none text-ink-muted">
                 {tier.name}
               </h3>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-normal text-ink">
-                  {tier.price}
-                </span>
-                {tier.period && (
-                  <span className="font-mono text-base text-ink-subtle">
-                    {tier.period}
-                  </span>
-                )}
-              </div>
-              <p className="mt-2 font-mono text-base leading-tight text-ink-muted">
-                {tier.description}
-              </p>
+              {tier.pricing === 'per-seat' ? (
+                <div className="mt-4">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-normal text-ink">
+                      ${seatPrice}
+                    </span>
+                    <span className="font-mono text-base text-ink-subtle">
+                      /seat/month
+                    </span>
+                  </div>
+                  {annual && (
+                    <p className="mt-1 font-mono text-2xs uppercase tracking-wider text-ink-faint">
+                      billed annually
+                    </p>
+                  )}
+                  <p className="mt-2 font-mono text-base leading-tight text-ink-muted">
+                    From ${minTotal}/month ({MIN_SEATS}-seat minimum)
+                  </p>
+                </div>
+              ) : (
+                <div className="mt-4">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-normal text-ink">
+                      Custom
+                    </span>
+                  </div>
+                  <p className="mt-2 font-mono text-base leading-tight text-ink-muted">
+                    {tier.description}
+                  </p>
+                </div>
+              )}
             </div>
 
             <ul className="mt-6 flex-1 space-y-3">
@@ -132,7 +175,7 @@ export function Pricing() {
               ))}
             </ul>
 
-            {/* Button — factory.ai charcoal style */}
+            {/* Button */}
             <a
               href="#early-access"
               className={cn(
