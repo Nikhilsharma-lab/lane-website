@@ -1,39 +1,154 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import Script from 'next/script'
+import { Geist, Geist_Mono } from 'next/font/google'
+import './globals.css'
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+})
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
+
+const SITE_URL = 'https://lane.so'
 
 export const metadata: Metadata = {
-  title: "Lane — The AI Operating System for Design Teams",
+  metadataBase: new URL(SITE_URL),
+  title: 'Lane — DesignOps Platform & AI Operating System for Design Teams',
   description:
-    "From 45% coordination waste to zero. Lane is the AI-native command center for design operations. Problem intake, scientific design stages, developer handoff, and impact measurement — all in one system.",
+    'Lane is the AI-native DesignOps platform for design leaders. Replace ticket chaos with Design Streams, block bad PM requests at intake, and measure real design impact. No surveillance.',
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: "Lane — The AI Operating System for Design Teams",
+    type: 'website',
+    url: SITE_URL,
+    siteName: 'Lane',
+    title: 'Lane — The Operating System for Design Teams',
     description:
-      "From 45% coordination waste to zero. AI-native design operations for teams who refuse to be managed by Jira.",
-    type: "website",
+      'From PM problem to shipped impact — one workflow. No surveillance. No tickets. No tools borrowed from engineering.',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Lane — The AI Operating System for Design Teams",
+    card: 'summary_large_image',
+    title: 'Lane — The Operating System for Design Teams',
     description:
-      "From 45% coordination waste to zero. AI-native design operations.",
+      'From PM problem to shipped impact — one workflow. No surveillance. No tickets. No tools borrowed from engineering.',
   },
-};
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Lane',
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.ico`,
+  sameAs: ['https://twitter.com/', 'https://linkedin.com/'],
+  founder: [
+    { '@type': 'Person', name: 'Nikhil', jobTitle: 'Founder' },
+    { '@type': 'Person', name: 'Nischal', jobTitle: 'Co-Founder' },
+  ],
+}
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Lane',
+  description:
+    'AI-native DesignOps platform. Design Streams, intake gate, handoff intelligence, and impact measurement for design teams.',
+  brand: { '@type': 'Brand', name: 'Lane' },
+  offers: {
+    '@type': 'Offer',
+    price: '29',
+    priceCurrency: 'USD',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: '29',
+      priceCurrency: 'USD',
+      unitText: 'seat/month',
+    },
+    availability: 'https://schema.org/PreOrder',
+    url: `${SITE_URL}/#pricing`,
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How is Lane different from Linear, Jira, or Notion?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Linear and Jira are ticket systems built for engineers — linear, deadline-driven, execution-first. Notion is a doc tool. Lane is a workflow built around how design actually happens — non-linear, exploratory, problem-first. Design Streams replace tickets. Five scientific stages replace sprints.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do we need to migrate off Figma?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Lane runs on top of Figma via OAuth. Designers keep designing in Figma. Lane handles everything around the design work — intake, context, handoff, impact measurement.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Lane track individual designer activity?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. No last-active timestamps. No time-per-task tracking. No individual velocity scores. We measure team health and shipped impact — never individual surveillance.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What does the AI intake gate actually do?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'When a PM files a request, our model classifies it as problem-framed, solution-specific, or hybrid. "Make the button bigger" gets blocked. "Conversion dropped 12% on the checkout step" passes through and auto-creates a Design Stream.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can PMs use Lane without designers learning a new tool?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — PMs file through a single intake form and receive digests. Designers get a workspace built around their actual workflow. The tool shape-shifts by role.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you integrate with Slack?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Not in V1. Slack-first workflows reproduce the chaos Lane is built to fix. Lane sends digests via email and surfaces escalations in-app. Slack notifications are on the roadmap for V2, opt-in, summary-only.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What happens to my data if I cancel?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Full export of every Design Stream, brief, and impact log as JSON and CSV. Thirty-day grace period before deletion. No dark patterns, no hostage data.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When does the beta open and how do I get in?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Beta cohort opens Summer 2026, capped at 100 design teams. Join the waitlist — we prioritize design leads at teams of 8+ designers. We reach out personally before granting access.',
+      },
+    },
+  ],
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
@@ -42,7 +157,25 @@ export default function RootLayout({
     >
       <body className="min-h-screen overflow-x-hidden bg-canvas text-ink">
         {children}
+        <Script
+          id="ld-organization"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <Script
+          id="ld-product"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        />
+        <Script
+          id="ld-faq"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
       </body>
     </html>
-  );
+  )
 }
