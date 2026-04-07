@@ -21,11 +21,11 @@
   --border-subtle: #2e2c2b;
   --border-strong: #4d4947;
 
-  /* Accent — factory.ai orange */
-  --accent: #ef6f2e;
-  --accent-hover: #ee6018;
-  --accent-deep: #d15010;
-  --accent-subtle: rgba(239, 111, 46, 0.1);
+  /* Accent — lime */
+  --accent: #84CC16;
+  --accent-hover: #65a30d;
+  --accent-deep: #4d7c0f;
+  --accent-subtle: rgba(132, 204, 22, 0.1);
 
   /* Button — dark charcoal, NOT orange */
   --btn-bg: #1f1d1c;

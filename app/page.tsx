@@ -9,7 +9,7 @@ import { Features } from '@/components/marketing/features'
 import { AntiSurveillance } from '@/components/marketing/anti-surveillance'
 import { Pricing } from '@/components/marketing/pricing'
 import { CtaSection } from '@/components/marketing/cta-section'
-import { Footer } from '@/components/marketing/footer'
+import { Footer, FooterBar } from '@/components/marketing/footer'
 
 const testimonials = {
   intake: {
@@ -89,6 +89,7 @@ export default function Home() {
       <WireframeCell>
         <Footer />
       </WireframeCell>
+      <FooterBar />
     </>
   )
 }

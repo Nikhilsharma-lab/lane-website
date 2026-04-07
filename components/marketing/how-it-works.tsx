@@ -163,7 +163,7 @@ export function HowItWorks() {
             </p>
 
             {/* Highlights */}
-            <div className="mt-8 pt-6 space-y-4">
+            <div className="mt-8 border-t border-[var(--border)] pt-6 space-y-4">
               {phases[activeTab].highlights.map((h) => (
                 <div key={h.label} className="flex items-start gap-4">
                   <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)] w-24 shrink-0 pt-px">

@@ -5,15 +5,15 @@ import { ScaleIn } from './motion'
 
 export function CtaSection() {
   return (
-    <section id="early-access" className="py-16 lg:py-24 px-4 lg:px-9">
+    <section
+      id="early-access"
+      className={cn(
+        'px-8 py-16 lg:px-16 lg:py-20',
+        'bg-[var(--inverted-bg)] text-[var(--inverted-text)]',
+        'text-center'
+      )}
+    >
       <ScaleIn>
-      <div
-        className={cn(
-          'px-8 py-16 lg:px-16 lg:py-20',
-          'bg-[var(--inverted-bg)] text-[var(--inverted-text)]',
-          'text-center'
-        )}
-      >
         <p className="font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--inverted-tertiary)]">
           We run our own design team on Lane.
         </p>
@@ -29,7 +29,6 @@ export function CtaSection() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          {/* Primary — inverted dark button on light bg */}
           <a
             href="mailto:yash@lane.so?subject=Early%20Access%20Request"
             className={cn(
@@ -60,7 +59,6 @@ export function CtaSection() {
             </span>
           </a>
 
-          {/* Secondary — text link */}
           <a
             href="mailto:yash@lane.so?subject=Book%20a%20Demo"
             className={cn(
@@ -76,7 +74,6 @@ export function CtaSection() {
             Book a Demo
           </a>
         </div>
-      </div>
       </ScaleIn>
     </section>
   )
