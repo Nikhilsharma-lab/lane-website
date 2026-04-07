@@ -36,11 +36,9 @@ export function Hero() {
                 'font-normal text-ink'
               )}
             >
-              The AI chief of staff
+              The operating system
               <br />
-              your design team
-              <br />
-              never had
+              for design teams
               <span className="text-accent">.</span>
             </h1>
           </FadeIn>
@@ -54,10 +52,8 @@ export function Hero() {
                 'text-ink-muted max-w-md'
               )}
             >
-              Built for design teams, not adapted for them.
-              From the moment a PM has a problem to the moment
-              you measure whether it actually worked — one system.
-              AI runs the ops. You lead the design.
+              From the PM&apos;s first problem to the user&apos;s measured outcome —
+              one workflow, built the way design actually happens.
             </p>
           </FadeIn>
 
@@ -68,8 +64,18 @@ export function Hero() {
                 'text-ink-subtle max-w-md'
               )}
             >
-              No surveillance. No forced status updates.
-              No tools built for developers that designers have to borrow.
+              No surveillance. No tickets. No tools borrowed from engineering.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.28}>
+            <p
+              className={cn(
+                'mt-3 font-mono text-xs leading-normal',
+                'text-ink-faint max-w-md'
+              )}
+            >
+              AI runs the operations. You lead the design.
             </p>
           </FadeIn>
 
