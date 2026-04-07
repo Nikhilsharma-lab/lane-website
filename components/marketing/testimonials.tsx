@@ -12,10 +12,10 @@ export function Testimonial({ quote, author, role }: TestimonialProps) {
   return (
     <section className="py-16 lg:py-24 px-4 lg:px-9">
       <FadeIn className="mx-auto max-w-2xl text-center">
-        <blockquote className="text-[18px] leading-[120%] font-normal text-[var(--text-primary)] lg:text-[20px]">
+        <blockquote className="text-lg leading-tight font-normal text-ink lg:text-xl">
           &ldquo;{quote}&rdquo;
         </blockquote>
-        <p className="mt-4 font-mono text-[14px] leading-none tracking-[-0.0175rem] text-[var(--text-tertiary)]">
+        <p className="mt-4 font-mono text-base leading-none text-ink-subtle">
           └ {author}, {role}
         </p>
       </FadeIn>

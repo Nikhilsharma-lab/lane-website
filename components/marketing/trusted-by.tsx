@@ -21,8 +21,8 @@ export function TrustedBy() {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left label */}
           <div className="flex items-center gap-3 shrink-0">
-            <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
-            <span className="font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)] whitespace-nowrap">
+            <span className="size-2 rounded-full bg-accent [animation:blink_1.4s_ease-in-out_infinite]" />
+            <span className="font-mono text-base uppercase leading-none text-ink-muted whitespace-nowrap">
               Trusted by teams at
             </span>
           </div>
@@ -34,8 +34,8 @@ export function TrustedBy() {
                 <span
                   key={`${name}-${i}`}
                   className={cn(
-                    'font-mono text-[15px] tracking-tight whitespace-nowrap',
-                    'text-[var(--text-tertiary)] opacity-60',
+                    'font-mono text-md whitespace-nowrap',
+                    'text-ink-subtle opacity-60',
                     'transition-opacity duration-200 hover:opacity-100'
                   )}
                 >

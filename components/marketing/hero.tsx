@@ -17,10 +17,10 @@ export function Hero() {
             <span
               className={cn(
                 'inline-flex items-center gap-3',
-                'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
+                'font-mono text-base uppercase leading-none text-ink-muted'
               )}
             >
-              <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
+              <span className="size-2 rounded-full bg-accent [animation:blink_1.4s_ease-in-out_infinite]" />
               Launching Summer 2026
             </span>
           </FadeIn>
@@ -29,11 +29,11 @@ export function Hero() {
           <FadeIn delay={0.1}>
             <h1
               className={cn(
-                'text-[36px] leading-[100%] tracking-[-0.12rem]',
-                'md:text-[48px] md:tracking-[-0.16rem]',
-                'lg:text-[56px] lg:tracking-[-0.18rem]',
-                'xl:text-[64px] xl:tracking-[-0.2rem]',
-                'font-normal text-[var(--text-primary)]'
+                'text-4xl tracking-display-sm leading-none',
+                'md:text-5xl md:tracking-display-md',
+                'lg:text-6xl lg:tracking-display-lg',
+                'xl:text-7xl xl:tracking-display-xl',
+                'font-normal text-ink'
               )}
             >
               The AI chief of staff
@@ -41,7 +41,7 @@ export function Hero() {
               your design team
               <br />
               never had
-              <span className="text-[var(--accent)]">.</span>
+              <span className="text-accent">.</span>
             </h1>
           </FadeIn>
 
@@ -49,9 +49,9 @@ export function Hero() {
           <FadeIn delay={0.2}>
             <p
               className={cn(
-                'mt-6 font-mono text-[14px] leading-[150%] tracking-[-0.0175rem]',
-                'lg:text-[15px]',
-                'text-[var(--text-secondary)] max-w-md'
+                'mt-6 font-mono text-base leading-normal',
+                'lg:text-md',
+                'text-ink-muted max-w-md'
               )}
             >
               Built for design teams, not adapted for them.
@@ -64,8 +64,8 @@ export function Hero() {
           <FadeIn delay={0.25}>
             <p
               className={cn(
-                'mt-4 font-mono text-[14px] leading-[150%] tracking-[-0.0175rem]',
-                'text-[var(--text-tertiary)] max-w-md'
+                'mt-4 font-mono text-base leading-normal',
+                'text-ink-subtle max-w-md'
               )}
             >
               No surveillance. No forced status updates.
@@ -79,26 +79,24 @@ export function Hero() {
               href="#early-access"
               className={cn(
                 'group relative inline-flex items-center justify-center',
-                'h-[31px] rounded-sm border border-transparent px-[14px]',
-                'bg-[var(--btn-bg)] transition-colors duration-150',
-                'hover:bg-[var(--btn-bg-hover)]',
-                'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem]',
-                'text-[var(--btn-text)] hover:text-[var(--btn-text-hover)]'
+                'h-btn-md rounded-xs border border-transparent px-3.5',
+                'bg-btn transition-colors duration-150',
+                'hover:bg-btn-hover',
+                'font-mono text-base uppercase leading-none',
+                'text-btn-ink hover:text-btn-ink-hover'
               )}
-              style={{ '--lines-color': 'var(--btn-lines-color)' } as React.CSSProperties}
+              style={{ '--lines-color': 'var(--color-btn-lines)' } as React.CSSProperties}
             >
               <span className="relative z-10">Request Early Access</span>
               <span
                 className={cn(
-                  'pointer-events-none absolute inset-0 rounded-sm opacity-0',
+                  'pointer-events-none absolute inset-0 rounded-xs opacity-0',
                   'group-hover:[animation:delayedFadeIn_100ms_ease-out_forwards]'
                 )}
               >
                 <span
                   className={cn(
-                    'absolute inset-0',
-                    '[background-image:repeating-linear-gradient(45deg,transparent_0px,transparent_2px,var(--lines-color)_2px,var(--lines-color)_3px,transparent_3px,transparent_5px)]',
-                    '[background-size:7.07px_7.07px]',
+                    'absolute inset-0 bg-stripe',
                     '[animation:slidePattern_2000ms_linear_infinite]'
                   )}
                 />
@@ -108,10 +106,10 @@ export function Hero() {
             <a
               href="#how-it-works"
               className={cn(
-                'group inline-flex items-center gap-2 h-[31px]',
-                'font-mono text-[12px] uppercase leading-none tracking-[-0.015rem]',
-                'text-[var(--text-secondary)] transition-colors duration-200',
-                'hover:text-[var(--accent)]'
+                'group inline-flex items-center gap-2 h-btn-md',
+                'font-mono text-xs uppercase leading-none',
+                'text-ink-muted transition-colors duration-200',
+                'hover:text-accent'
               )}
             >
               See how it works
@@ -123,16 +121,9 @@ export function Hero() {
 
         {/* ═══ Right: AI Workflow Visual ═══ */}
         <ScaleIn delay={0.2} className="relative hidden lg:flex h-full">
-          <div className="relative w-full flex flex-col rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-surface)]/80 overflow-hidden">
+          <div className="relative w-full flex flex-col rounded-sm border border-dashed border-rail bg-surface/80 overflow-hidden">
             {/* Background grid */}
-            <div
-              className="absolute inset-0 opacity-[0.035]"
-              style={{
-                backgroundImage:
-                  'linear-gradient(var(--text-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--text-secondary) 1px, transparent 1px)',
-                backgroundSize: '32px 32px',
-              }}
-            />
+            <div className="absolute inset-0 opacity-5 bg-grid-lg" />
 
             {/* SVG constellation + connection lines */}
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 500" fill="none" preserveAspectRatio="xMidYMid slice">
@@ -145,7 +136,7 @@ export function Hero() {
                   <motion.line
                     key={angle}
                     x1="250" y1="250" x2={x2} y2={y2}
-                    stroke="var(--text-tertiary)"
+                    stroke="var(--color-ink-subtle)"
                     strokeWidth="0.5"
                     strokeDasharray="4 6"
                     initial={{ pathLength: 0, opacity: 0 }}
@@ -158,7 +149,7 @@ export function Hero() {
               {/* Orbital ring */}
               <motion.circle
                 cx="250" cy="250" r="120"
-                stroke="var(--text-tertiary)"
+                stroke="var(--color-ink-subtle)"
                 strokeWidth="0.5"
                 strokeDasharray="3 8"
                 fill="none"
@@ -169,7 +160,7 @@ export function Hero() {
               />
               <motion.circle
                 cx="250" cy="250" r="80"
-                stroke="var(--accent)"
+                stroke="var(--color-accent)"
                 strokeWidth="0.5"
                 strokeDasharray="2 6"
                 fill="none"
@@ -227,7 +218,7 @@ export function Hero() {
                         key={`px-${i}`}
                         x={b.x} y={b.y}
                         width={S} height={S} rx="1"
-                        fill="var(--text-primary)"
+                        fill="var(--color-ink)"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 0.85 }}
                         transition={{ duration: 0.05, delay: startDelay + i * typeDelay }}
@@ -237,7 +228,7 @@ export function Hero() {
                     <motion.rect
                       x={cursorX} y={cursorY}
                       width="3" height={S * 5 + 2 * 4}
-                      fill="var(--accent)"
+                      fill="var(--color-accent)"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: [0, 0, 1, 1, 0] }}
                       transition={{
@@ -251,7 +242,7 @@ export function Hero() {
                     <motion.rect
                       x={baseX + 162 + 4 * G} y={baseY + 4 * G}
                       width={S} height={S} rx="1"
-                      fill="var(--accent)"
+                      fill="var(--color-accent)"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.05, delay: totalTypeTime }}
@@ -267,7 +258,7 @@ export function Hero() {
                   cx={250 + Math.cos(((offset + 90) * Math.PI) / 180) * 120}
                   cy={250 + Math.sin(((offset + 90) * Math.PI) / 180) * 120}
                   r="3"
-                  fill="var(--accent)"
+                  fill="var(--color-accent)"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: [0, 0.8, 0] }}
                   transition={{ duration: 3, delay: 1.2 + i * 0.4, repeat: Infinity, ease: 'easeInOut' }}
@@ -282,7 +273,7 @@ export function Hero() {
                 <motion.circle
                   key={i}
                   cx={cx} cy={cy} r="2"
-                  fill="var(--text-secondary)"
+                  fill="var(--color-ink-muted)"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0.4 }}
                   transition={{ duration: 0.5, delay: 1.0 + i * 0.06 }}
@@ -298,20 +289,20 @@ export function Hero() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                className="max-w-[220px] rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)]/90 backdrop-blur-sm px-3.5 py-3"
+                className="max-w-card-sm rounded-sm border border-dashed border-rail bg-canvas/90 backdrop-blur-sm px-3.5 py-3"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="relative flex size-1.5">
-                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-[var(--accent)] opacity-50" />
-                    <span className="relative inline-flex size-1.5 rounded-full bg-[var(--accent)]" />
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-accent" />
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--text-tertiary)]">Incoming</span>
+                  <span className="font-mono text-2xs uppercase tracking-wider text-ink-subtle">Incoming</span>
                 </div>
-                <p className="font-mono text-[10px] leading-[140%] text-[var(--text-secondary)]">
+                <p className="font-mono text-2xs leading-snug text-ink-muted">
                   &quot;Make the button bigger&quot;
                 </p>
                 <div className="mt-1.5">
-                  <span className="rounded-sm bg-[var(--accent)]/15 px-1.5 py-0.5 text-[8px] text-[var(--accent)] uppercase tracking-wider font-semibold">
+                  <span className="rounded-xs bg-accent-soft px-1.5 py-0.5 text-2xs text-accent uppercase tracking-wider font-semibold">
                     Solution-specific
                   </span>
                 </div>
@@ -323,24 +314,24 @@ export function Hero() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 1.2 }}
-                  className="rounded-[0.375rem] border border-[var(--accent)]/30 bg-[var(--bg-base)]/90 backdrop-blur-sm px-3 py-2.5"
+                  className="rounded-sm border border-accent/30 bg-canvas/90 backdrop-blur-sm px-3 py-2.5"
                 >
                   <div className="flex items-center gap-1.5 mb-1.5">
-                    <span className="flex size-3.5 items-center justify-center rounded-sm bg-[var(--accent)]/15">
-                      <span className="text-[7px] text-[var(--accent)] font-bold">AI</span>
+                    <span className="flex size-3.5 items-center justify-center rounded-xs bg-accent-soft">
+                      <span className="text-2xs text-accent font-bold">AI</span>
                     </span>
-                    <span className="font-mono text-[8px] uppercase tracking-wider text-[var(--accent)]">Reframing</span>
+                    <span className="font-mono text-2xs uppercase tracking-wider text-accent">Reframing</span>
                   </div>
-                  <p className="font-mono text-[10px] leading-[140%] text-[var(--text-primary)] max-w-[180px]">
+                  <p className="font-mono text-2xs leading-snug text-ink max-w-card-xs">
                     &quot;Conversion dropped 12%.
                     <br />
                     What&apos;s causing friction?&quot;
                   </p>
                   <div className="mt-1.5 flex gap-1.5">
-                    <span className="rounded-sm bg-emerald-500/15 px-1 py-0.5 text-[7px] text-emerald-400 uppercase tracking-wider font-semibold">
+                    <span className="rounded-xs bg-success-soft px-1 py-0.5 text-2xs text-success uppercase tracking-wider font-semibold">
                       Problem-framed
                     </span>
-                    <span className="rounded-sm bg-[var(--bg-surface)] px-1 py-0.5 text-[7px] text-[var(--text-tertiary)] uppercase tracking-wider">
+                    <span className="rounded-xs bg-surface px-1 py-0.5 text-2xs text-ink-subtle uppercase tracking-wider">
                       P1
                     </span>
                   </div>
@@ -350,19 +341,19 @@ export function Hero() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 1.5 }}
-                  className="rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)]/90 backdrop-blur-sm px-3 py-2.5"
+                  className="rounded-sm border border-dashed border-rail bg-canvas/90 backdrop-blur-sm px-3 py-2.5"
                 >
-                  <span className="font-mono text-[8px] uppercase tracking-wider text-[var(--text-tertiary)] block mb-1.5">Pipeline</span>
+                  <span className="font-mono text-2xs uppercase tracking-wider text-ink-subtle block mb-1.5">Pipeline</span>
                   <div className="flex flex-col gap-1">
                     {['Sense', 'Frame', 'Diverge'].map((s, i) => (
                       <div key={s} className="flex items-center gap-1.5">
                         <span className={cn(
                           'size-1 rounded-full',
-                          i < 2 ? 'bg-emerald-400' : 'bg-[var(--accent)]'
+                          i < 2 ? 'bg-success' : 'bg-accent'
                         )} />
                         <span className={cn(
-                          'font-mono text-[8px] uppercase tracking-wider',
-                          i === 2 ? 'text-[var(--accent)]' : 'text-[var(--text-tertiary)]'
+                          'font-mono text-2xs uppercase tracking-wider',
+                          i === 2 ? 'text-accent' : 'text-ink-subtle'
                         )}>{s}</span>
                       </div>
                     ))}
@@ -375,23 +366,23 @@ export function Hero() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.8 }}
-                className="self-end max-w-[260px] rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)]/90 backdrop-blur-sm px-3.5 py-2.5"
+                className="self-end max-w-card-md rounded-sm border border-dashed border-rail bg-canvas/90 backdrop-blur-sm px-3.5 py-2.5"
               >
-                <span className="font-mono text-[8px] uppercase tracking-wider text-[var(--text-tertiary)] block mb-2">Weekly Digest</span>
+                <span className="font-mono text-2xs uppercase tracking-wider text-ink-subtle block mb-2">Weekly Digest</span>
                 <div className="flex items-center gap-4">
                   <div>
-                    <span className="font-mono text-[16px] leading-none text-[var(--text-primary)]">3</span>
-                    <span className="font-mono text-[8px] text-[var(--text-tertiary)] uppercase tracking-wider ml-1">shipped</span>
+                    <span className="font-mono text-lg leading-none text-ink">3</span>
+                    <span className="font-mono text-2xs text-ink-subtle uppercase tracking-wider ml-1">shipped</span>
                   </div>
-                  <div className="w-px h-4 bg-[var(--border)]" />
+                  <div className="w-px h-4 bg-line" />
                   <div>
-                    <span className="font-mono text-[16px] leading-none text-emerald-400">0</span>
-                    <span className="font-mono text-[8px] text-[var(--text-tertiary)] uppercase tracking-wider ml-1">escalations</span>
+                    <span className="font-mono text-lg leading-none text-success">0</span>
+                    <span className="font-mono text-2xs text-ink-subtle uppercase tracking-wider ml-1">escalations</span>
                   </div>
-                  <div className="w-px h-4 bg-[var(--border)]" />
+                  <div className="w-px h-4 bg-line" />
                   <div>
-                    <span className="font-mono text-[16px] leading-none text-[var(--accent)]">94%</span>
-                    <span className="font-mono text-[8px] text-[var(--text-tertiary)] uppercase tracking-wider ml-1">health</span>
+                    <span className="font-mono text-lg leading-none text-accent">94%</span>
+                    <span className="font-mono text-2xs text-ink-subtle uppercase tracking-wider ml-1">health</span>
                   </div>
                 </div>
               </motion.div>
@@ -400,13 +391,13 @@ export function Hero() {
 
             {/* Corner accents */}
             <div className="absolute top-3 right-3 flex items-center gap-1.5">
-              <span className="size-1.5 rounded-full bg-[var(--text-tertiary)] opacity-40" />
-              <span className="size-1.5 rounded-full bg-[var(--text-tertiary)] opacity-40" />
-              <span className="size-1.5 rounded-full bg-[var(--accent)] opacity-60" />
+              <span className="size-1.5 rounded-full bg-ink-subtle opacity-40" />
+              <span className="size-1.5 rounded-full bg-ink-subtle opacity-40" />
+              <span className="size-1.5 rounded-full bg-accent opacity-60" />
             </div>
             <div className="absolute bottom-3 left-3 flex items-center gap-1.5">
-              <span className="size-1.5 rounded-full bg-[var(--accent)] opacity-60" />
-              <span className="size-1.5 rounded-full bg-[var(--text-tertiary)] opacity-40" />
+              <span className="size-1.5 rounded-full bg-accent opacity-60" />
+              <span className="size-1.5 rounded-full bg-ink-subtle opacity-40" />
             </div>
           </div>
         </ScaleIn>
@@ -415,44 +406,37 @@ export function Hero() {
         <ScaleIn delay={0.3} className="lg:hidden">
           <div
             className={cn(
-              'rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-surface)] p-5 overflow-hidden relative'
+              'rounded-sm border border-dashed border-rail bg-surface p-5 overflow-hidden relative'
             )}
           >
             {/* Subtle grid bg */}
-            <div
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                backgroundImage:
-                  'linear-gradient(var(--text-secondary) 1px, transparent 1px), linear-gradient(90deg, var(--text-secondary) 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-              }}
-            />
+            <div className="absolute inset-0 opacity-5 bg-grid-sm" />
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-3">
                 <span className="relative flex size-1.5">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-[var(--accent)] opacity-50" />
-                  <span className="relative inline-flex size-1.5 rounded-full bg-[var(--accent)]" />
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
+                  <span className="relative inline-flex size-1.5 rounded-full bg-accent" />
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-tertiary)]">
+                <span className="font-mono text-2xs uppercase tracking-wider text-ink-subtle">
                   Live Workflow
                 </span>
               </div>
               <div className="space-y-2">
-                <div className="flex items-center justify-between rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)] px-3 py-2">
-                  <span className="font-mono text-[11px] text-[var(--text-secondary)]">Intake gate</span>
-                  <span className="rounded-sm bg-[var(--accent)]/15 px-1.5 py-0.5 text-[9px] text-[var(--accent)] uppercase tracking-wider font-semibold">
+                <div className="flex items-center justify-between rounded-sm border border-dashed border-rail bg-canvas px-3 py-2">
+                  <span className="font-mono text-xs text-ink-muted">Intake gate</span>
+                  <span className="rounded-xs bg-accent-soft px-1.5 py-0.5 text-2xs text-accent uppercase tracking-wider font-semibold">
                     Reframing
                   </span>
                 </div>
-                <div className="flex items-center justify-between rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)] px-3 py-2">
-                  <span className="font-mono text-[11px] text-[var(--text-secondary)]">Design phase</span>
-                  <span className="rounded-sm bg-emerald-500/10 px-1.5 py-0.5 text-[9px] text-emerald-400 uppercase tracking-wider font-semibold">
+                <div className="flex items-center justify-between rounded-sm border border-dashed border-rail bg-canvas px-3 py-2">
+                  <span className="font-mono text-xs text-ink-muted">Design phase</span>
+                  <span className="rounded-xs bg-success-soft px-1.5 py-0.5 text-2xs text-success uppercase tracking-wider font-semibold">
                     Diverge
                   </span>
                 </div>
-                <div className="flex items-center justify-between rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)] px-3 py-2">
-                  <span className="font-mono text-[11px] text-[var(--text-secondary)]">Weekly digest</span>
-                  <span className="font-mono text-[11px] text-[var(--text-primary)]">3 shipped &middot; 94% health</span>
+                <div className="flex items-center justify-between rounded-sm border border-dashed border-rail bg-canvas px-3 py-2">
+                  <span className="font-mono text-xs text-ink-muted">Weekly digest</span>
+                  <span className="font-mono text-xs text-ink">3 shipped &middot; 94% health</span>
                 </div>
               </div>
             </div>

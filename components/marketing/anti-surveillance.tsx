@@ -36,17 +36,17 @@ export function AntiSurveillance() {
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',
-              'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
+              'font-mono text-base uppercase leading-none text-ink-muted'
             )}
           >
-            <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
+            <span className="size-2 rounded-full bg-accent [animation:blink_1.4s_ease-in-out_infinite]" />
             Our pledge
           </span>
           <h2
             className={cn(
-              'text-[30px] leading-[100%] tracking-[-0.05625rem]',
-              'lg:text-[48px] lg:tracking-[-0.09rem]',
-              'font-normal text-[var(--text-primary)]'
+              'text-3xl leading-none',
+              'lg:text-5xl',
+              'font-normal text-ink'
             )}
           >
             Support, not surveillance.
@@ -62,17 +62,17 @@ export function AntiSurveillance() {
             <StaggerItem key={p.never} className="h-full">
               <div
                 className={cn(
-                  'h-full rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)] p-6',
-                  'transition-colors duration-200 hover:border-[var(--border-strong)]'
+                  'h-full rounded-sm border border-dashed border-rail bg-canvas p-6',
+                  'transition-colors duration-200 hover:border-line-strong'
                 )}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <Icon size={18} className="text-[var(--accent)]" />
-                  <h3 className="text-[15px] font-normal text-[var(--text-primary)]">
+                  <Icon size={18} className="text-accent" />
+                  <h3 className="text-md font-normal text-ink">
                     {p.never}
                   </h3>
                 </div>
-                <p className="font-mono text-[14px] leading-[120%] tracking-[-0.0175rem] text-[var(--text-secondary)]">
+                <p className="font-mono text-base leading-tight text-ink-muted">
                   {p.instead}
                 </p>
               </div>
@@ -83,8 +83,8 @@ export function AntiSurveillance() {
 
       {/* Vocabulary strip */}
       <FadeIn delay={0.2}>
-        <div className="mt-16 pt-10 border-t border-[var(--border)]">
-          <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)] mb-6">
+        <div className="mt-16 pt-10 border-t border-line">
+          <p className="font-mono text-xs uppercase tracking-wider text-ink-subtle mb-6">
             We even think differently about words
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4">
@@ -97,11 +97,11 @@ export function AntiSurveillance() {
               { instead: 'Ticket', we: 'Request' },
             ].map((v) => (
               <div key={v.instead} className="flex items-baseline gap-3">
-                <span className="font-mono text-[13px] text-[var(--text-tertiary)] line-through decoration-[1px]">
+                <span className="font-mono text-sm text-ink-subtle line-through decoration-1">
                   {v.instead}
                 </span>
-                <span className="font-mono text-[11px] text-[var(--text-tertiary)]">→</span>
-                <span className="font-mono text-[13px] text-[var(--text-primary)]">
+                <span className="font-mono text-xs text-ink-subtle">→</span>
+                <span className="font-mono text-sm text-ink">
                   {v.we}
                 </span>
               </div>

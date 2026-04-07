@@ -88,17 +88,17 @@ export function HowItWorks() {
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',
-              'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
+              'font-mono text-base uppercase leading-none text-ink-muted'
             )}
           >
-            <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
+            <span className="size-2 rounded-full bg-accent [animation:blink_1.4s_ease-in-out_infinite]" />
             How it works
           </span>
           <h2
             className={cn(
-              'text-[30px] leading-[100%] tracking-[-0.05625rem]',
-              'lg:text-[48px] lg:tracking-[-0.09rem]',
-              'font-normal text-[var(--text-primary)]'
+              'text-3xl leading-none',
+              'lg:text-5xl',
+              'font-normal text-ink'
             )}
           >
             From idea to impact.
@@ -113,10 +113,10 @@ export function HowItWorks() {
         {steps.map((step, i) => (
           <StaggerItem key={i}>
             <div className="flex items-start gap-3">
-              <span className="font-mono text-[14px] leading-[120%] tracking-[-0.0175rem] text-[var(--accent)]">
+              <span className="font-mono text-base leading-tight text-accent">
                 {i + 1}.
               </span>
-              <p className="font-mono text-[14px] leading-[120%] tracking-[-0.0175rem] text-[var(--text-secondary)]">
+              <p className="font-mono text-base leading-tight text-ink-muted">
                 {step}
               </p>
             </div>
@@ -132,10 +132,10 @@ export function HowItWorks() {
               key={phase.id}
               onClick={() => setActiveTab(i)}
               className={cn(
-                'rounded-[0.375rem] border px-4 py-2 font-mono text-[12px] uppercase tracking-[-0.015rem] transition-all duration-200',
+                'rounded-sm border px-4 py-2 font-mono text-xs uppercase transition-all duration-200',
                 activeTab === i
-                  ? 'border-[var(--accent)] text-[var(--accent)] bg-[var(--accent)]/5'
-                  : 'border-[var(--border)] text-[var(--text-tertiary)] hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]'
+                  ? 'border-accent text-accent bg-accent-soft'
+                  : 'border-line text-ink-subtle hover:border-line-strong hover:text-ink'
               )}
             >
               {phase.label}
@@ -151,25 +151,25 @@ export function HowItWorks() {
           <div className="flex flex-col">
             <h3
               className={cn(
-                'text-[18px] leading-[100%] tracking-normal',
-                'lg:text-[24px]',
-                'font-normal text-[var(--text-primary)]'
+                'text-lg leading-none',
+                'lg:text-2xl',
+                'font-normal text-ink'
               )}
             >
               {phases[activeTab].heading}
             </h3>
-            <p className="mt-4 font-mono text-[14px] leading-[150%] tracking-[-0.0175rem] text-[var(--text-secondary)]">
+            <p className="mt-4 font-mono text-base leading-normal text-ink-muted">
               {phases[activeTab].description}
             </p>
 
             {/* Highlights */}
-            <div className="mt-8 border-t border-[var(--border)] pt-6 space-y-4">
+            <div className="mt-8 border-t border-line pt-6 space-y-4">
               {phases[activeTab].highlights.map((h) => (
                 <div key={h.label} className="flex items-start gap-4">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-tertiary)] w-24 shrink-0 pt-px">
+                  <span className="font-mono text-xs uppercase tracking-wider text-ink-subtle w-24 shrink-0 pt-px">
                     {h.label}
                   </span>
-                  <span className="font-mono text-[13px] leading-[140%] tracking-[-0.015rem] text-[var(--text-primary)]">
+                  <span className="font-mono text-sm leading-snug text-ink">
                     {h.value}
                   </span>
                 </div>
@@ -180,15 +180,15 @@ export function HowItWorks() {
           {/* Screenshot placeholder */}
           <div
             className={cn(
-              'min-h-[280px] rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)]',
+              'min-h-screenshot rounded-sm border border-dashed border-rail bg-canvas',
               'flex items-start justify-start p-6'
             )}
           >
             <div>
-              <p className="font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]">
+              <p className="font-mono text-base uppercase leading-none text-ink-muted">
                 {phases[activeTab].screenshot.file}
               </p>
-              <p className="mt-3 font-mono text-[12px] tracking-[-0.015rem] text-[var(--text-tertiary)]">
+              <p className="mt-3 font-mono text-xs text-ink-subtle">
                 {phases[activeTab].screenshot.hint}
               </p>
             </div>

@@ -40,7 +40,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-screen overflow-x-hidden bg-[var(--bg-base)] text-[var(--text-primary)]">
+      <body className="min-h-screen overflow-x-hidden bg-canvas text-ink">
         {children}
       </body>
     </html>

@@ -70,17 +70,17 @@ export function Pricing() {
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',
-              'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
+              'font-mono text-base uppercase leading-none text-ink-muted'
             )}
           >
-            <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
+            <span className="size-2 rounded-full bg-accent [animation:blink_1.4s_ease-in-out_infinite]" />
             Pricing
           </span>
           <h2
             className={cn(
-              'text-[30px] leading-[100%] tracking-[-0.05625rem]',
-              'lg:text-[48px] lg:tracking-[-0.09rem]',
-              'font-normal text-[var(--text-primary)]'
+              'text-3xl leading-none',
+              'lg:text-5xl',
+              'font-normal text-ink'
             )}
           >
             Flat-rate. No per-seat confusion.
@@ -94,31 +94,31 @@ export function Pricing() {
           <StaggerItem
             key={tier.name}
             className={cn(
-              'rounded-[0.375rem] border p-6 lg:p-8 flex flex-col',
+              'rounded-sm border p-6 lg:p-8 flex flex-col',
               tier.highlighted
-                ? 'border-[var(--accent)] bg-[var(--bg-surface)]'
-                : 'border-[var(--border)] bg-[var(--bg-surface)]'
+                ? 'border-accent bg-surface'
+                : 'border-line bg-surface'
             )}
           >
             <div>
               {/* Numbered badge — factory.ai pricing pattern */}
-              <span className="font-mono text-[12px] leading-none tracking-[-0.015rem] text-[var(--accent)]">
+              <span className="font-mono text-xs leading-none text-accent">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <h3 className="mt-3 font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]">
+              <h3 className="mt-3 font-mono text-base uppercase leading-none text-ink-muted">
                 {tier.name}
               </h3>
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-[36px] font-normal tracking-tight text-[var(--text-primary)]">
+                <span className="text-4xl font-normal text-ink">
                   {tier.price}
                 </span>
                 {tier.period && (
-                  <span className="font-mono text-[14px] text-[var(--text-tertiary)]">
+                  <span className="font-mono text-base text-ink-subtle">
                     {tier.period}
                   </span>
                 )}
               </div>
-              <p className="mt-2 font-mono text-[14px] leading-[120%] tracking-[-0.0175rem] text-[var(--text-secondary)]">
+              <p className="mt-2 font-mono text-base leading-tight text-ink-muted">
                 {tier.description}
               </p>
             </div>
@@ -126,8 +126,8 @@ export function Pricing() {
             <ul className="mt-6 flex-1 space-y-3">
               {tier.features.map((f) => (
                 <li key={f} className="flex items-start gap-2">
-                  <Check size={14} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                  <span className="text-[14px] leading-[120%] text-[var(--text-secondary)]">{f}</span>
+                  <Check size={14} className="mt-0.5 shrink-0 text-accent" />
+                  <span className="text-base leading-tight text-ink-muted">{f}</span>
                 </li>
               ))}
             </ul>
@@ -137,26 +137,24 @@ export function Pricing() {
               href="#early-access"
               className={cn(
                 'group relative mt-8 inline-flex items-center justify-center',
-                'h-[31px] rounded-sm border border-transparent px-[14px]',
-                'bg-[var(--btn-bg)] transition-colors duration-150',
-                'hover:bg-[var(--btn-bg-hover)]',
-                'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem]',
-                'text-[var(--btn-text)] hover:text-[var(--btn-text-hover)]'
+                'h-btn-md rounded-xs border border-transparent px-3.5',
+                'bg-btn transition-colors duration-150',
+                'hover:bg-btn-hover',
+                'font-mono text-base uppercase leading-none',
+                'text-btn-ink hover:text-btn-ink-hover'
               )}
-              style={{ '--lines-color': 'var(--btn-lines-color)' } as React.CSSProperties}
+              style={{ '--lines-color': 'var(--color-btn-lines)' } as React.CSSProperties}
             >
               <span className="relative z-10">{tier.cta}</span>
               <span
                 className={cn(
-                  'pointer-events-none absolute inset-0 rounded-sm opacity-0',
+                  'pointer-events-none absolute inset-0 rounded-xs opacity-0',
                   'group-hover:[animation:delayedFadeIn_100ms_ease-out_forwards]'
                 )}
               >
                 <span
                   className={cn(
-                    'absolute inset-0',
-                    '[background-image:repeating-linear-gradient(45deg,transparent_0px,transparent_2px,var(--lines-color)_2px,var(--lines-color)_3px,transparent_3px,transparent_5px)]',
-                    '[background-size:7.07px_7.07px]',
+                    'absolute inset-0 bg-stripe',
                     '[animation:slidePattern_2000ms_linear_infinite]'
                   )}
                 />

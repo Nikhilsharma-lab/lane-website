@@ -1,100 +1,178 @@
 @import "tailwindcss";
 
-/* ═══ Dark marketing theme — factory.ai visual language ═══ */
-:root {
-  /* Backgrounds — warm near-black, not cold */
-  --bg-base: #020202;
-  --bg-surface: #101010;
-  --bg-subtle: #1a1917;
-  --bg-hover: #1f1d1c;
-  --bg-elevated: #242221;
-
-  /* Text — warm neutrals, not zinc */
-  --text-primary: #eeeeee;
-  --text-bright: #fafafa;
-  --text-secondary: #8a8380;
-  --text-tertiary: #5c5855;
-  --text-quaternary: #4d4947;
-
-  /* Borders — warm, not cold zinc */
-  --border: #3d3a39;
-  --border-subtle: #2e2c2b;
-  --border-strong: #4d4947;
-
-  /* Accent — lime */
-  --accent: #84CC16;
-  --accent-hover: #65a30d;
-  --accent-deep: #4d7c0f;
-  --accent-subtle: rgba(132, 204, 22, 0.1);
-
-  /* Button — dark charcoal, NOT orange */
-  --btn-bg: #1f1d1c;
-  --btn-bg-hover: #ccc9c7;
-  --btn-text: #eeeeee;
-  --btn-text-hover: #020202;
-  --btn-lines-color: #a49d9a;
-
-  /* Nav text */
-  --nav-text: #a49d9a;
-
-  /* Inverted (for CTA section) */
-  --inverted-bg: #eeeeee;
-  --inverted-text: #020202;
-  --inverted-secondary: #5c5855;
-  --inverted-tertiary: #8a8380;
-  --inverted-border: #ccc9c7;
-}
+/* ═══════════════════════════════════════════════════════════════════
+   LANE DESIGN TOKENS
+   Single source of truth. Nothing in components should be hardcoded.
+   ═══════════════════════════════════════════════════════════════════ */
 
 @theme inline {
+  /* ── Fonts ─────────────────────────────────────────────────────── */
   --font-sans: 'Geist', var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', var(--font-geist-mono), ui-monospace, monospace;
 
-  --color-background: var(--bg-base);
-  --color-foreground: var(--text-primary);
-
+  /* ── Breakpoints ───────────────────────────────────────────────── */
   --breakpoint-2xl: 1920px;
+
+  /* ── Colors: surfaces ──────────────────────────────────────────── */
+  --color-canvas:          #020202;  /* page background */
+  --color-surface:         #101010;  /* cards, panels, footer */
+  --color-subtle:          #1a1917;
+  --color-hover:           #1f1d1c;
+  --color-raised:          #242221;
+
+  /* ── Colors: ink (text) ────────────────────────────────────────── */
+  --color-ink:             #eeeeee;  /* primary */
+  --color-ink-bright:      #fafafa;
+  --color-ink-muted:       #8a8380;  /* secondary */
+  --color-ink-subtle:      #5c5855;  /* tertiary */
+  --color-ink-faint:       #4d4947;  /* quaternary */
+
+  /* ── Colors: borders ───────────────────────────────────────────── */
+  --color-line:            #3d3a39;
+  --color-line-subtle:     #2e2c2b;
+  --color-line-strong:     #4d4947;
+  --color-rail:            rgba(255, 255, 255, 0.5);  /* wireframe dashed rails */
+
+  /* ── Colors: accent ────────────────────────────────────────────── */
+  --color-accent:          #84CC16;  /* lime */
+  --color-accent-hover:    #65a30d;
+  --color-accent-deep:     #4d7c0f;
+  --color-accent-soft:     rgba(132, 204, 22, 0.1);
+
+  /* ── Colors: success ───────────────────────────────────────────── */
+  --color-success:         #34d399;  /* emerald-400 */
+  --color-success-soft:    rgba(52, 211, 153, 0.15);
+
+  /* ── Colors: button ────────────────────────────────────────────── */
+  --color-btn:             #1f1d1c;
+  --color-btn-hover:       #ccc9c7;
+  --color-btn-ink:         #eeeeee;
+  --color-btn-ink-hover:   #020202;
+  --color-btn-lines:       #a49d9a;
+
+  /* ── Colors: nav ───────────────────────────────────────────────── */
+  --color-nav:             #a49d9a;
+
+  /* ── Colors: inverted (CTA section) ────────────────────────────── */
+  --color-inverted:        #eeeeee;
+  --color-inverted-ink:    #020202;
+  --color-inverted-muted:  #5c5855;
+  --color-inverted-subtle: #8a8380;
+  --color-inverted-line:   #ccc9c7;
+
+  /* Tailwind v4 baseline aliases */
+  --color-background: var(--color-canvas);
+  --color-foreground: var(--color-ink);
+
+  /* ── Type scale (size + letter-spacing baked in) ───────────────── */
+  /* Consolidated scale: 13 sizes. Tracking pairs with size by convention. */
+  --text-2xs:                  10px;
+  --text-2xs--letter-spacing:  -0.01rem;
+
+  --text-xs:                   12px;
+  --text-xs--letter-spacing:   -0.015rem;
+
+  --text-sm:                   13px;
+  --text-sm--letter-spacing:   -0.015rem;
+
+  --text-base:                 14px;
+  --text-base--letter-spacing: -0.0175rem;
+
+  --text-md:                   15px;
+  --text-md--letter-spacing:   -0.02rem;
+
+  --text-lg:                   18px;
+  --text-lg--letter-spacing:   -0.025rem;
+
+  --text-xl:                   20px;
+  --text-xl--letter-spacing:   -0.03rem;
+
+  --text-2xl:                  24px;
+  --text-2xl--letter-spacing:  -0.04rem;
+
+  --text-3xl:                  30px;
+  --text-3xl--letter-spacing:  -0.05625rem;
+
+  --text-4xl:                  36px;
+  --text-4xl--letter-spacing:  -0.06rem;
+
+  --text-5xl:                  48px;
+  --text-5xl--letter-spacing:  -0.09rem;
+
+  --text-6xl:                  56px;
+  --text-6xl--letter-spacing:  -0.1rem;
+
+  --text-7xl:                  64px;
+  --text-7xl--letter-spacing:  -0.11rem;
+
+  /* ── Line height ───────────────────────────────────────────────── */
+  --leading-none:    1;       /* leading-none */
+  --leading-tight:   1.2;     /* leading-tight */
+  --leading-snug:    1.4;     /* leading-snug */
+  --leading-normal:  1.5;     /* leading-normal */
+
+  /* ── Display tracking (hero override at large sizes) ───────────── */
+  --tracking-display-sm: -0.12rem;
+  --tracking-display-md: -0.16rem;
+  --tracking-display-lg: -0.18rem;
+  --tracking-display-xl: -0.2rem;
+
+  /* ── Radius ────────────────────────────────────────────────────── */
+  --radius-xs:  2px;        /* rounded-xs — pill chips, button corners */
+  --radius-sm:  0.375rem;   /* rounded-sm — cards, panels, tab buttons */
+
+  /* ── Spacing extensions ────────────────────────────────────────── */
+  --spacing-rail:           66px;        /* lg wireframe rail column */
+  --spacing-btn-sm:         25px;        /* header CTA height */
+  --spacing-btn-md:         31px;        /* primary button height */
+  --spacing-logo:           1.05rem;     /* nav + footer logo height (16.8px) */
+  --spacing-footer:         13.125rem;   /* footer content min-height (210px) */
+  --spacing-footer-lg:      14.375rem;   /* footer content min-height lg (230px) */
+  --spacing-screenshot:     17.5rem;     /* how-it-works screenshot placeholder (280px) */
+
+  /* ── Container scale (for max-w utilities) ─────────────────────── */
+  --container-card-xs:  11.25rem;  /* hero AI card (180px) */
+  --container-card-sm:  13.75rem;  /* hero incoming card (220px) */
+  --container-card-md:  16.25rem;  /* hero digest card (260px) */
 }
 
 html {
   scroll-behavior: smooth;
-  max-width: 1920px;
+  max-width: var(--breakpoint-2xl);
   margin: 0 auto;
 }
 
 body {
-  background: var(--bg-base);
-  color: var(--text-primary);
+  background: var(--color-canvas);
+  color: var(--color-ink);
   overflow-x: clip;
 }
 
-/* ═══ Animations — factory.ai patterns ═══ */
+/* ═══ Animations ═══ */
 
-/* Diagonal stripe slide for buttons — 45deg, 1px lines, 2px apart */
 @keyframes slidePattern {
-  0% { background-position: 0 0; }
+  0%   { background-position: 0 0; }
   100% { background-position: 28.28px -28.28px; }
 }
 
-/* Delayed fade-in for stripe overlay on hover */
 @keyframes delayedFadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
-/* Blinking dot for logo and section badges */
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%      { opacity: 0; }
 }
 
-/* Logo marquee scroll */
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* ═══ Utility: factory.ai crosshatch diagonal line texture ═══ */
+/* ═══ Utilities ═══ */
 @layer utilities {
+  /* Crosshatch diagonal line texture for "filled" wireframe sections */
   .bg-lines {
     background-image:
       repeating-linear-gradient(
@@ -112,5 +190,34 @@ body {
         rgba(255, 255, 255, 0.03) 5px
       );
     background-blend-mode: difference;
+  }
+
+  /* Diagonal stripe overlay for button hover (uses --lines-color) */
+  .bg-stripe {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 2px,
+      var(--lines-color) 2px,
+      var(--lines-color) 3px,
+      transparent 3px,
+      transparent 5px
+    );
+    background-size: 7.07px 7.07px;
+  }
+
+  /* Faint dotted grid backdrop for hero illustration */
+  .bg-grid-lg {
+    background-image:
+      linear-gradient(var(--color-ink-muted) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-ink-muted) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .bg-grid-sm {
+    background-image:
+      linear-gradient(var(--color-ink-muted) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-ink-muted) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }

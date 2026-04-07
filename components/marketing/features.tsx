@@ -59,17 +59,17 @@ export function Features() {
           <span
             className={cn(
               'inline-flex items-center gap-3 mb-6',
-              'font-mono text-[14px] uppercase leading-none tracking-[-0.0175rem] text-[var(--text-secondary)]'
+              'font-mono text-base uppercase leading-none text-ink-muted'
             )}
           >
-            <span className="size-2 rounded-full bg-[var(--accent)] [animation:blink_1.4s_ease-in-out_infinite]" />
+            <span className="size-2 rounded-full bg-accent [animation:blink_1.4s_ease-in-out_infinite]" />
             Features
           </span>
           <h2
             className={cn(
-              'text-[30px] leading-[100%] tracking-[-0.05625rem]',
-              'lg:text-[48px] lg:tracking-[-0.09rem]',
-              'font-normal text-[var(--text-primary)]'
+              'text-3xl leading-none',
+              'lg:text-5xl',
+              'font-normal text-ink'
             )}
           >
             AI runs the ops.
@@ -87,17 +87,17 @@ export function Features() {
             <StaggerItem key={f.title} className="h-full">
               <div
                 className={cn(
-                  'h-full rounded-[0.375rem] border border-dashed border-white/50 bg-[var(--bg-base)] p-6',
-                  'transition-colors duration-200 hover:border-[var(--border-strong)]'
+                  'h-full rounded-sm border border-dashed border-rail bg-canvas p-6',
+                  'transition-colors duration-200 hover:border-line-strong'
                 )}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Icon size={18} className="text-[var(--accent)]" />
-                  <h3 className="text-[15px] font-normal text-[var(--text-primary)]">
+                  <Icon size={18} className="text-accent" />
+                  <h3 className="text-md font-normal text-ink">
                     {f.title}
                   </h3>
                 </div>
-                <p className="font-mono text-[14px] leading-[120%] tracking-[-0.0175rem] text-[var(--text-secondary)]">
+                <p className="font-mono text-base leading-tight text-ink-muted">
                   {f.description}
                 </p>
               </div>
