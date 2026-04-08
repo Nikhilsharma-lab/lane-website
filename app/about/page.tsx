@@ -5,7 +5,7 @@ import { Footer, FooterBar } from '@/components/marketing/footer'
 export const metadata: Metadata = {
   title: 'About — Lane',
   description:
-    'Lane is an AI-native DesignOps platform built around how design actually happens — non-linear, exploratory, problem-first.',
+    'Lane is the operating system for design teams. Built around how design actually happens — non-linear, exploratory, problem-first.',
 }
 
 function PageShell({ children }: { children: React.ReactNode }) {
@@ -37,31 +37,73 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-md text-ink-muted leading-relaxed mb-12">
-              Lane is an AI-native DesignOps platform built around how design
-              actually happens — non-linear, exploratory, problem-first. The
-              antidote to tools borrowed from engineering.
+              Lane is the operating system for design teams. One workflow from
+              the PM&apos;s first problem to the user&apos;s measured outcome —
+              intake, context, handoff, and impact — built the way design
+              actually happens. Design Streams replace tickets. Five
+              scientific stages replace sprints. The whole tool is shaped to
+              thinking work, not ship-it work, and runs on top of Figma so
+              nobody has to migrate off the canvas they already use.
             </p>
 
             <section className="mb-12">
               <h2 className="font-mono uppercase text-xs text-ink mb-4">
-                Built by
+                Why it exists
               </h2>
-              <ul className="space-y-3 text-md text-ink-muted">
-                <li>
-                  <span className="text-ink">Nikhil</span>, Founder. Sets product direction and leads design.
-                </li>
-                <li>
-                  <span className="text-ink">Nischal</span>, Co-Founder. Leads engineering and platform.
-                </li>
-              </ul>
+              <p className="text-md text-ink-muted leading-relaxed mb-4">
+                Design teams run on tools borrowed from engineering. Jira and
+                Linear are ticket systems shaped for linear, deadline-driven
+                execution. Design work is none of those things. It is
+                non-linear, exploratory, and starts with a problem that is
+                usually framed wrong. Tickets flatten that into a to-do list
+                and reward the wrong behavior.
+              </p>
+              <p className="text-md text-ink-muted leading-relaxed">
+                The second failure mode is worse. Most &ldquo;productivity&rdquo;
+                tooling aimed at design teams is surveillance in disguise —
+                utilization dashboards, last-active timestamps, individual
+                velocity scores, hours logged against tasks nobody scoped
+                correctly. The trade is always the same: leaders get a
+                number that feels like control, designers get slower and
+                quieter, and the work that mattered — the framing, the
+                exploration, the rewrite of a bad brief — never shows up
+                on the chart at all. Lane exists because the ticket model
+                and the surveillance model are both wrong, and nobody was
+                building the alternative for the people actually doing the
+                work.
+              </p>
             </section>
 
             <section className="mb-12">
               <h2 className="font-mono uppercase text-xs text-ink mb-4">
-                What we believe
+                Support, not surveillance
               </h2>
               <p className="text-md text-ink-muted leading-relaxed">
-                No surveillance. No tickets. No tools borrowed from engineering.
+                No utilization percentages. No last-active timestamps. No
+                individual velocity scores. No forced status updates. Leads
+                see team health signals — Available, Stretched, Overloaded
+                — never individual tracking. Reflections are the designer&apos;s
+                own words, in their own time. AI nudges go to the designer
+                first, never escalated automatically. This is not a policy
+                statement tacked onto a feature list. It is the constraint
+                the product is built under, and the reason Lane looks
+                different from everything else in the category.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="font-mono uppercase text-xs text-ink mb-4">
+                How it&apos;s being built
+              </h2>
+              <p className="text-md text-ink-muted leading-relaxed">
+                Lane is a two-person company, AI-assisted end to end, built
+                in public. <span className="text-ink">Nikhil</span>, Founder.{' '}
+                <span className="text-ink">Nischal</span>, Co-Founder. A small
+                team means fast iteration, direct contact with every early
+                user, and no layers between the people using the product and
+                the people making it. It also means the product ships before
+                the deck — what you see on this site is the real thing, not
+                a mockup of one.
               </p>
             </section>
 
