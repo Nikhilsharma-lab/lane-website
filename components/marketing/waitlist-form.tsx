@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
+import { track } from '@vercel/analytics'
 import { cn } from '@/lib/utils'
 import { getSupabaseClient } from '@/lib/supabase'
 
@@ -74,6 +75,19 @@ export function WaitlistForm() {
       }).catch((notifyErr) => {
         console.error('[waitlist] notify failed (non-blocking)', notifyErr)
       })
+
+      // North star metric (P0.4). Fire to both Vercel Analytics and Microsoft
+      // Clarity for cross-verification. Clarity call is a no-op if the script
+      // isn't loaded yet.
+      try {
+        track('waitlist_submitted', { role, teamSize, currentTool })
+        ;(window as unknown as { clarity?: (...args: unknown[]) => void }).clarity?.(
+          'event',
+          'waitlist_submitted'
+        )
+      } catch (analyticsErr) {
+        console.error('[waitlist] analytics event failed (non-blocking)', analyticsErr)
+      }
 
       setState('success')
     } catch (err) {
