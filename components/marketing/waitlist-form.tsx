@@ -14,6 +14,10 @@ type Role = (typeof ROLES)[number]
 type TeamSize = (typeof TEAM_SIZES)[number]
 type CurrentTool = (typeof CURRENT_TOOLS)[number]
 
+// Pragmatic email regex — rejects obvious garbage like `test`, `a@b`, `foo@bar`
+// without trying to be RFC 5322 perfect. Server (Supabase) is the real authority.
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
 export function WaitlistForm() {
   const [email, setEmail] = useState('')
   const [role, setRole] = useState<Role | ''>('')
@@ -28,6 +32,12 @@ export function WaitlistForm() {
 
     if (!email || !role || !teamSize || !currentTool) {
       setErrorMsg('All fields are required.')
+      setState('error')
+      return
+    }
+
+    if (!EMAIL_REGEX.test(email.trim())) {
+      setErrorMsg('Please enter a valid email address.')
       setState('error')
       return
     }
@@ -54,6 +64,16 @@ export function WaitlistForm() {
         setState('error')
         return
       }
+
+      // Fire-and-forget notification. Notification failures must never block
+      // the user-facing success state — Supabase row is the source of truth.
+      void fetch('/api/waitlist-notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, role, teamSize, currentTool }),
+      }).catch((notifyErr) => {
+        console.error('[waitlist] notify failed (non-blocking)', notifyErr)
+      })
 
       setState('success')
     } catch (err) {
