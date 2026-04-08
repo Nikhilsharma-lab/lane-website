@@ -143,6 +143,7 @@ export function WaitlistForm() {
           <input
             type="email"
             required
+            autoComplete="email"
             placeholder="work@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
