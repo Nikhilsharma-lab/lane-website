@@ -1,12 +1,13 @@
 import type { MetadataRoute } from 'next'
 import { vsSlugs } from '@/lib/vs-content'
+import { posts } from '@/lib/blog-content'
 
 const SITE = 'https://lane.so'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  const staticRoutes = ['', '/about', '/privacy', '/terms'].map((path) => ({
+  const staticRoutes = ['', '/about', '/privacy', '/terms', '/blog'].map((path) => ({
     url: `${SITE}${path}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
@@ -20,5 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...vsRoutes]
+  const blogRoutes = posts.map((post) => ({
+    url: `${SITE}/blog/${post.slug}`,
+    lastModified: new Date(post.publishDate),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...staticRoutes, ...vsRoutes, ...blogRoutes]
 }

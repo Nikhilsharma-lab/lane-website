@@ -7,10 +7,11 @@ const columns = [
   {
     title: 'Resources',
     links: [
-      { label: 'How it works', href: '#how-it-works' },
-      { label: 'Features', href: '#features' },
-      { label: 'Pricing', href: '#pricing' },
-      { label: 'FAQ', href: '#faq' },
+      { label: 'How it works', href: '/#how-it-works' },
+      { label: 'Features', href: '/#features' },
+      { label: 'Pricing', href: '/#pricing' },
+      { label: 'FAQ', href: '/#faq' },
+      { label: 'Writing', href: '/blog' },
     ],
   },
   {
