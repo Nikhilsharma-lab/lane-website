@@ -23,7 +23,11 @@ export function Header() {
           {/* Nav content */}
           <div className="flex-1 min-w-0 flex items-center justify-between px-4 py-5 lg:px-9">
             {/* Logo */}
-            <a href="/" className="inline-flex items-center text-ink" aria-label="Lane home">
+            <a
+              href="/"
+              className="inline-flex items-center text-ink rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+              aria-label="Lane home"
+            >
               <svg
                 viewBox="0 0 492 101"
                 fill="none"
@@ -50,6 +54,7 @@ export function Header() {
                   className={cn(
                     'relative font-mono text-xs uppercase leading-none',
                     'text-nav transition-colors duration-200 hover:text-accent',
+                    'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
                     'after:absolute after:-bottom-px after:left-0 after:h-px after:w-0',
                     'after:bg-current after:transition-all after:duration-300 after:ease-in-out',
                     'hover:after:w-full'
@@ -68,6 +73,7 @@ export function Header() {
                 'h-btn-sm rounded-xs border border-transparent px-3',
                 'bg-btn transition-colors duration-150',
                 'hover:bg-btn-hover',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
                 'font-mono text-xs uppercase leading-none',
                 'text-btn-ink hover:text-btn-ink-hover'
               )}
@@ -91,7 +97,7 @@ export function Header() {
 
             {/* Mobile hamburger */}
             <button
-              className="md:hidden p-2 text-nav"
+              className="md:hidden p-2 text-nav rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -113,7 +119,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="font-mono text-xs uppercase text-nav hover:text-accent"
+                className="font-mono text-xs uppercase text-nav hover:text-accent rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
               >
                 {link.label}
               </a>
@@ -125,7 +131,8 @@ export function Header() {
                 'mt-2 inline-flex items-center justify-center',
                 'h-btn-md rounded-xs px-3.5',
                 'bg-btn font-mono text-base uppercase',
-                'text-btn-ink'
+                'text-btn-ink',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'
               )}
             >
               Request Early Access

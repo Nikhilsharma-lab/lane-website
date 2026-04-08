@@ -75,6 +75,7 @@ export function Faq() {
                     'cursor-pointer list-none py-6',
                     'text-md lg:text-lg font-normal text-ink',
                     'transition-colors duration-200 hover:text-accent',
+                    'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
                     '[&::-webkit-details-marker]:hidden'
                   )}
                 >

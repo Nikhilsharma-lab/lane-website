@@ -88,6 +88,7 @@ export function Hero() {
                 'h-btn-md rounded-xs border border-transparent px-3.5',
                 'bg-btn transition-colors duration-150',
                 'hover:bg-btn-hover',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas',
                 'font-mono text-base uppercase leading-none',
                 'text-btn-ink hover:text-btn-ink-hover'
               )}
@@ -115,7 +116,8 @@ export function Hero() {
                 'group inline-flex items-center gap-2 h-btn-md',
                 'font-mono text-xs uppercase leading-none',
                 'text-ink-muted transition-colors duration-200',
-                'hover:text-accent'
+                'hover:text-accent',
+                'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'
               )}
             >
               See how it works

@@ -82,21 +82,21 @@ export function Pricing() {
             Coming from{' '}
             <a
               href="/vs/jira"
-              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               Jira
             </a>
             ,{' '}
             <a
               href="/vs/linear"
-              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               Linear
             </a>
             , or{' '}
             <a
               href="/vs/notion"
-              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               Notion
             </a>
@@ -114,6 +114,7 @@ export function Pricing() {
             className={cn(
               'h-btn-sm px-4 rounded-xs',
               'font-mono text-2xs uppercase tracking-wider transition-colors',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
               !annual
                 ? 'bg-canvas text-ink'
                 : 'text-ink-subtle hover:text-ink-muted'
@@ -128,6 +129,7 @@ export function Pricing() {
               'h-btn-sm px-4 rounded-xs',
               'font-mono text-2xs uppercase tracking-wider transition-colors',
               'inline-flex items-center gap-2',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
               annual
                 ? 'bg-canvas text-ink'
                 : 'text-ink-subtle hover:text-ink-muted'
@@ -209,6 +211,7 @@ export function Pricing() {
                 'h-btn-md rounded-xs border border-transparent px-3.5',
                 'bg-btn transition-colors duration-150',
                 'hover:bg-btn-hover',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
                 'font-mono text-base uppercase leading-none',
                 'text-btn-ink hover:text-btn-ink-hover'
               )}

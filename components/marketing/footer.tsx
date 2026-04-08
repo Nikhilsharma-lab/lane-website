@@ -70,7 +70,8 @@ export function Footer() {
                           href={link.href}
                           className={cn(
                             'font-mono text-base leading-none text-ink-muted',
-                            'transition-colors duration-200 hover:text-ink'
+                            'transition-colors duration-200 hover:text-ink',
+                            'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface'
                           )}
                         >
                           {link.label}
@@ -99,7 +100,11 @@ export function FooterBar() {
         <div className="w-2 lg:w-rail shrink-0 border-r border-dashed border-rail" />
         <div className="flex-1 min-w-0 flex items-center justify-between px-4 py-5 lg:px-9">
           {/* Logo — same size as header */}
-          <a href="/" className="inline-flex items-center text-ink" aria-label="Lane home">
+          <a
+            href="/"
+            className="inline-flex items-center text-ink rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+            aria-label="Lane home"
+          >
             <svg
               viewBox="0 0 492 101"
               fill="none"
@@ -124,7 +129,8 @@ export function FooterBar() {
                 href="https://twitter.com"
                 className={cn(
                   'font-mono text-xs uppercase text-ink-muted',
-                  'transition-colors duration-200 hover:text-ink'
+                  'transition-colors duration-200 hover:text-ink',
+                  'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'
                 )}
               >
                 X (Twitter)
@@ -134,7 +140,8 @@ export function FooterBar() {
                 href="https://linkedin.com"
                 className={cn(
                   'font-mono text-xs uppercase text-ink-muted',
-                  'transition-colors duration-200 hover:text-ink'
+                  'transition-colors duration-200 hover:text-ink',
+                  'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'
                 )}
               >
                 LinkedIn

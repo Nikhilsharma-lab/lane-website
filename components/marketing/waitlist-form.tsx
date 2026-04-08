@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react'
 import { track } from '@vercel/analytics'
 import { cn } from '@/lib/utils'
 import { getSupabaseClient } from '@/lib/supabase'
+import { motion } from './motion'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -99,9 +100,12 @@ export function WaitlistForm() {
 
   if (state === 'success') {
     return (
-      <div
+      <motion.div
         role="status"
         aria-live="polite"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
         className={cn(
           'mt-10 mx-auto max-w-md',
           'border border-inverted-line rounded-xs px-6 py-8',
@@ -116,7 +120,7 @@ export function WaitlistForm() {
           <br />
           No spam. No drip sequences. One email when it&apos;s your turn.
         </p>
-      </div>
+      </motion.div>
     )
   }
 
@@ -126,6 +130,7 @@ export function WaitlistForm() {
     'font-mono text-base leading-none',
     'text-inverted-ink placeholder:text-inverted-subtle',
     'focus:outline-none focus:border-accent',
+    'focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-inverted',
     'transition-colors duration-150'
   )
 
@@ -221,6 +226,7 @@ export function WaitlistForm() {
           'h-btn-md rounded-xs border border-transparent px-3.5',
           'bg-inverted-ink transition-colors duration-150',
           'hover:bg-inverted-line',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-inverted',
           'font-mono text-base uppercase leading-none',
           'text-inverted hover:text-inverted-ink',
           'disabled:opacity-60 disabled:cursor-not-allowed'
