@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
 import { FadeIn } from '@/components/marketing/motion'
 import { WireframeCell } from '@/components/marketing/wireframe-cell'
+import { VsFaq } from '@/components/vs/vs-faq'
 import type { CellState, VsContent } from '@/lib/vs-content'
 
 /* ─────────────────────────── Cell indicator ─────────────────────────── */
@@ -266,9 +267,15 @@ function VsCta({ content }: { content: VsContent }) {
           <span className="text-accent">.</span>
         </h2>
         <p className="mt-5 font-mono text-base text-ink-muted max-w-xl">
-          We prioritize design leads at teams of eight or more. If {content.competitor} is still
-          the right answer for you after reading this — that&apos;s a fine outcome. We&apos;d rather
-          you know than guess.
+          We prioritize design leads at teams of eight or more.{' '}
+          <a
+            href="/#pricing"
+            className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+          >
+            Pricing is flat at $29 per designer
+          </a>
+          . If {content.competitor} is still the right answer for you after reading this — that&apos;s
+          a fine outcome. We&apos;d rather you know than guess.
         </p>
         <div className="mt-8">
           <a
@@ -310,6 +317,9 @@ export function ComparisonPage({ content }: { content: VsContent }) {
         <VsMatrix content={content} />
       </WireframeCell>
       <WireframeCell>
+        <VsFaq content={content} />
+      </WireframeCell>
+      <WireframeCell filled>
         <VsCta content={content} />
       </WireframeCell>
     </main>
