@@ -51,6 +51,17 @@ export function AntiSurveillance() {
           >
             Support, not surveillance.
           </h2>
+          <a
+            href="/manifesto"
+            className={cn(
+              'mt-4 inline-flex items-center gap-2',
+              'font-mono text-xs uppercase leading-none text-ink-muted',
+              'transition-colors duration-200 hover:text-accent',
+              'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'
+            )}
+          >
+            Read the full manifesto &rarr;
+          </a>
         </div>
       </FadeIn>
 

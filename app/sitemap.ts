@@ -7,7 +7,7 @@ const SITE = 'https://lane.so'
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  const staticRoutes = ['', '/about', '/privacy', '/terms', '/blog'].map((path) => ({
+  const staticRoutes = ['', '/about', '/manifesto', '/privacy', '/terms', '/blog'].map((path) => ({
     url: `${SITE}${path}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
