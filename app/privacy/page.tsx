@@ -5,7 +5,7 @@ import { Footer, FooterBar } from '@/components/marketing/footer'
 export const metadata: Metadata = {
   title: 'Privacy Policy — Lane',
   description:
-    'How Lane handles waitlist data during closed beta. No tracking, no third-party analytics, no surveillance.',
+    'How Lane handles waitlist data during closed beta. Privacy-friendly analytics, no cookies, no surveillance.',
 }
 
 function PageShell({ children }: { children: React.ReactNode }) {
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
               Privacy Policy<span className="text-accent">.</span>
             </h1>
             <p className="font-mono text-xs uppercase text-ink-subtle mb-10">
-              Last updated: 2026-04-07
+              Last updated: 2026-04-08
             </p>
 
             <p className="text-md text-ink-muted leading-relaxed mb-12">
@@ -53,9 +53,10 @@ export default function PrivacyPage() {
               <p className="text-md text-ink-muted leading-relaxed">
                 Email, role, team size, and current tool — all voluntarily
                 submitted via the waitlist form. Server logs for standard web
-                operations: IP address, user agent, request timestamps. Nothing
-                else. No tracking pixels, no third-party analytics, no
-                fingerprinting.
+                operations: IP address, user agent, request timestamps.
+                Aggregate page views and a single <code className="font-mono text-sm">waitlist_submitted</code>{' '}
+                event via Vercel Web Analytics — cookieless, no cross-site
+                tracking, no fingerprinting, IPs are hashed and discarded.
               </p>
             </section>
 
@@ -86,8 +87,12 @@ export default function PrivacyPage() {
                 4. Where it lives
               </h2>
               <p className="text-md text-ink-muted leading-relaxed">
-                Waitlist data lives in Supabase. Hosting and server logs run on
-                Vercel. Both are US-based.
+                Waitlist data lives in Supabase. Hosting, server logs, and
+                privacy-friendly analytics run on Vercel. Signup notification
+                emails are delivered via Resend. All three are US-based. We
+                share waitlist data with none of them beyond what is required
+                to store the row, serve the site, or send the one notification
+                email.
               </p>
             </section>
 
