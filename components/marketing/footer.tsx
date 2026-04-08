@@ -26,6 +26,7 @@ const columns = [
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
+      { label: 'Manifesto', href: '/manifesto' },
       { label: 'Contact', href: '/#early-access' },
     ],
   },
@@ -122,35 +123,10 @@ export function FooterBar() {
             </svg>
           </a>
 
-          {/* Right: socials + copyright */}
-          <div className="flex items-center gap-6">
-            <div className="hidden sm:flex items-center gap-2">
-              <a
-                href="https://twitter.com"
-                className={cn(
-                  'font-mono text-xs uppercase text-ink-muted',
-                  'transition-colors duration-200 hover:text-ink',
-                  'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'
-                )}
-              >
-                X (Twitter)
-              </a>
-              <span className="text-ink-subtle">,</span>
-              <a
-                href="https://linkedin.com"
-                className={cn(
-                  'font-mono text-xs uppercase text-ink-muted',
-                  'transition-colors duration-200 hover:text-ink',
-                  'rounded-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas'
-                )}
-              >
-                LinkedIn
-              </a>
-            </div>
-            <p className="font-mono text-xs uppercase text-ink-subtle">
-              &copy; Lane 2026
-            </p>
-          </div>
+          {/* Right: copyright */}
+          <p className="font-mono text-xs uppercase text-ink-subtle">
+            &copy; Lane 2026
+          </p>
         </div>
         <div className="w-2 lg:w-rail shrink-0 border-l border-dashed border-rail" />
       </div>

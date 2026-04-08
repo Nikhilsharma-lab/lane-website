@@ -46,7 +46,6 @@ const organizationSchema = {
   name: 'Lane',
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.ico`,
-  sameAs: ['https://twitter.com/', 'https://linkedin.com/'],
   founder: [
     { '@type': 'Person', name: 'Nikhil', jobTitle: 'Founder' },
     { '@type': 'Person', name: 'Nischal', jobTitle: 'Co-Founder' },
