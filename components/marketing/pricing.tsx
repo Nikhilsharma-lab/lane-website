@@ -76,6 +76,32 @@ export function Pricing() {
           >
             $29 per designer<span className="text-accent">.</span>{' '}That&apos;s it.
           </h2>
+
+          {/* Inline comparison links — for visitors arriving with an existing tool in mind */}
+          <p className="mt-5 font-mono text-base text-ink-muted">
+            Coming from{' '}
+            <a
+              href="/vs/jira"
+              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              Jira
+            </a>
+            ,{' '}
+            <a
+              href="/vs/linear"
+              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              Linear
+            </a>
+            , or{' '}
+            <a
+              href="/vs/notion"
+              className="text-ink underline decoration-rail underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              Notion
+            </a>
+            ? See the honest comparison.
+          </p>
         </div>
       </FadeIn>
 

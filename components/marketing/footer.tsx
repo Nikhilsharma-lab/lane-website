@@ -14,6 +14,14 @@ const columns = [
     ],
   },
   {
+    title: 'Compare',
+    links: [
+      { label: 'Lane vs Jira', href: '/vs/jira' },
+      { label: 'Lane vs Linear', href: '/vs/linear' },
+      { label: 'Lane vs Notion', href: '/vs/notion' },
+    ],
+  },
+  {
     title: 'Company',
     links: [
       { label: 'About', href: '/about' },
